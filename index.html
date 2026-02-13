@@ -32,11 +32,14 @@
 </header>
 
 <section>
+
+  <!-- About Me -->
   <div class="card">
     <h2>About Me</h2>
     <p>Motivated Cybersecurity Practitioner with hands-on experience in pentesting, red teaming, web exploitation, and Active Directory attacks. Passionate about vulnerability discovery and continuous skill development. Skilled in offensive operations, report writing, and CTF challenges.</p>
   </div>
 
+  <!-- Experience -->
   <div class="card">
     <h2>Experience & Projects</h2>
     <ul>
@@ -47,61 +50,65 @@
     </ul>
   </div>
 
+  <!-- Skills -->
   <div class="card">
     <h2>Skills & Tools</h2>
     <p>Penetration Testing, Web Exploitation, Active Directory Attacks, Python Scripting, Burp Suite, Nmap, Metasploit, BloodHound, Hashcat, Nessus, Wireshark, SQLMap, Bash, PowerShell.</p>
   </div>
 
-<div class="card">
-  <h2>Reports & CTFs</h2>
-  
-  <!-- REPORTS -->
-  <h3>Vulnerabilities Reports</h3>
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('idor1')">🔹 IDOR Vulnerability (High)</div>
-    <div class="report-details" id="idor1">
-      <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
-      <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
-      <p><strong>Steps:</strong> Redacted for public website.</p>
+  <!-- Reports & CTFs -->
+  <div class="card">
+    <h2>Reports & CTFs</h2>
+    
+    <!-- Vulnerabilities Reports -->
+    <h3>Vulnerabilities Reports</h3>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('idor1')">🔹 IDOR Vulnerability (High)</div>
+      <div class="report-details" id="idor1">
+        <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
+        <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
+        <p><strong>Steps:</strong> Redacted for public website.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('sqli1')">🔹 SQL Injection (Critical)</div>
-    <div class="report-details" id="sqli1">
-      <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
-      <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
-      <p><strong>Steps:</strong> Redacted for public website.</p>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('sqli1')">🔹 SQL Injection (Critical)</div>
+      <div class="report-details" id="sqli1">
+        <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
+        <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
+        <p><strong>Steps:</strong> Redacted for public website.</p>
+      </div>
     </div>
-  </div>
 
-  <!-- CTFs -->
-  <h3>CTF Challenges</h3>
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('ctf1')">🏆 Wgel CTF – Room 1 Completed</div>
-    <div class="report-details" id="ctf1">
-      <p>Platform: TryHackMe</p>
-      <p>Level: Medium</p>
-      <p>Write-up: Solved without spoilers for public display.</p>
+    <!-- CTF Challenges -->
+    <h3>CTF Challenges</h3>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('ctf1')">🏆 Wgel CTF – Room 1 Completed</div>
+      <div class="report-details" id="ctf1">
+        <p>Platform: TryHackMe</p>
+        <p>Level: Medium</p>
+        <p>Write-up: Solved without spoilers for public display.</p>
+      </div>
     </div>
-  </div>
 
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('ctf2')">🏆 Vulnversity CTF – Room 2 Completed</div>
-    <div class="report-details" id="ctf2">
-      <p>Platform: HackTheBox</p>
-      <p>Level: Hard</p>
-      <p>Write-up: Redacted for public display.</p>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('ctf2')">🏆 Vulnversity CTF – Room 2 Completed</div>
+      <div class="report-details" id="ctf2">
+        <p>Platform: HackTheBox</p>
+        <p>Level: Hard</p>
+        <p>Write-up: Redacted for public display.</p>
+      </div>
     </div>
-  </div>
-  
+
+  </div> <!-- End Reports & CTFs Card -->
+
+  <!-- Contact -->
   <div class="card">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:m.bafy10@gmail.com">m.bafy10@gmail.com</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/mustafa-mohamed-0a77a1197/" target="_blank">Mustafa Mohamed</a></p>
   </div>
-  
-</div>
+
 </section>
 
 <script>
