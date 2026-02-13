@@ -9,18 +9,25 @@
   body { font-family: 'Arial', sans-serif; background:#0f172a; color:white; margin:0; padding:0; line-height:1.6;}
   a { color:#38bdf8; text-decoration:none; }
   a:hover { text-decoration:underline; }
-  header { background:#1e293b; padding:40px 20px; text-align:center; }
-  h1 { color:#38bdf8; margin:10px 0; }
-  h2 { border-bottom: 2px solid #38bdf8; padding-bottom:5px; }
+  header { background:#1e293b; padding:50px 20px; text-align:center; }
+  h1 { color:#38bdf8; margin:10px 0; font-size:2.5em; }
+  h2 { border-bottom: 2px solid #38bdf8; padding-bottom:5px; margin-top:40px; }
+  h3 { margin-top:20px; }
   section { padding:40px 20px; max-width:1000px; margin:auto; }
   .card { background:#1e293b; margin:20px 0; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.3);}
   img.profile { width:180px; border-radius:50%; display:block; margin:auto; border:3px solid #38bdf8;}
   ul { list-style-type: disc; padding-left:20px; }
+  
+  /* Report & CTF Styles */
   .report-card { background:#293242; padding:15px; border-radius:10px; margin:15px 0; }
-  .report-title { font-weight:bold; cursor:pointer; }
+  .report-title { font-weight:bold; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+  .report-badge { padding:2px 6px; border-radius:4px; font-size:0.8em; font-weight:bold; }
+  .low { background:#16a34a; color:white; }
+  .medium { background:#eab308; color:black; }
+  .hard { background:#f97316; color:white; }
+  .high { background:#dc2626; color:white; }
+  .critical { background:#991b1b; color:white; }
   .report-details { display:none; margin-top:10px; padding-left:10px; }
-  button { background:#38bdf8; color:#0f172a; border:none; padding:5px 10px; border-radius:5px; cursor:pointer; }
-  button:hover { background:#22c1f3; }
 </style>
 </head>
 <body>
@@ -57,97 +64,190 @@
   </div>
 
   <!-- Reports & CTFs -->
- <div class="card">
-  <h2>Reports & CTFs</h2>
+  <div class="card">
+    <h2>Reports & CTFs</h2>
 
-  <!-- 1️⃣ PortSwigger Labs -->
-  <h3>PortSwigger Labs</h3>
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('pslab1')">💻 Lab 1 – SQL Injection (Medium)</div>
-    <div class="report-details" id="pslab1">
-      <p>Category: Web Security / SQL Injection</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
+    <!-- 1️⃣ PortSwigger Labs -->
+<h3>PortSwigger Web Security Academy – All Labs Completed</h3>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps1')">
+     SQL Injection
+    <span class="report-badge medium">Medium</span>
   </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('pslab2')">💻 Lab 2 – CSRF Vulnerability (Low)</div>
-    <div class="report-details" id="pslab2">
-      <p>Category: Web Security / CSRF</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
+  <div class="report-details" id="ps1">
+    <p>Union-based, Error-based, Blind SQLi, and advanced exploitation techniques.</p>
   </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('pslab3')">💻 Lab 3 – Broken Access Control (Medium)</div>
-    <div class="report-details" id="pslab3">
-      <p>Category: Web Security / Access Control</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
-  </div>
-
-  <!-- 2️⃣ CTF Rooms -->
-  <h3>CTF Challenges</h3>
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('ctf1')">🏆 Wgel CTF – Room 1 (Medium)</div>
-    <div class="report-details" id="ctf1">
-      <p>Platform: TryHackMe</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
-  </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('ctf2')">🏆 Vulnversity CTF – Room 2 (Hard)</div>
-    <div class="report-details" id="ctf2">
-      <p>Platform: HackTheBox</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
-  </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('ctf3')">🏆 Internal CTF – AD Room (Medium)</div>
-    <div class="report-details" id="ctf3">
-      <p>Platform: Internal / Private</p>
-      <p>Status: Completed</p>
-      <p>Write-up: Redacted for public display</p>
-    </div>
-  </div>
-
-  <!-- 3️⃣ Vulnerability Reports -->
-  <h3>Vulnerability Reports</h3>
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('idor1')">🔹 IDOR Vulnerability (High)</div>
-    <div class="report-details" id="idor1">
-      <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
-      <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
-      <p><strong>Steps:</strong> Redacted for public website.</p>
-    </div>
-  </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('sqli1')">🔹 SQL Injection (Critical)</div>
-    <div class="report-details" id="sqli1">
-      <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
-      <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
-      <p><strong>Steps:</strong> Redacted for public website.</p>
-    </div>
-  </div>
-
-  <div class="report-card">
-    <div class="report-title" onclick="toggleReport('csrf1')">🔹 CSRF Vulnerability (Medium)</div>
-    <div class="report-details" id="csrf1">
-      <p><strong>Summary:</strong> CSRF attack possible on reservation endpoint. Data sanitized for public display.</p>
-      <p><strong>Impact:</strong> Unauthorized actions on behalf of users, phishing risk.</p>
-      <p><strong>Steps:</strong> Redacted for public website.</p>
-    </div>
-  </div>
-
 </div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps2')">
+     Cross-Site Scripting (XSS)
+    <span class="report-badge medium">Medium</span>
+  </div>
+  <div class="report-details" id="ps2">
+    <p>Reflected, Stored, DOM-based XSS with advanced payload crafting.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps3')">
+     Server-Side Request Forgery (SSRF)
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps3">
+    <p>Internal network access, metadata exploitation, and filter bypass techniques.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps4')">
+     Access Control & Authentication Bypass
+    <span class="report-badge medium">Medium</span>
+  </div>
+  <div class="report-details" id="ps4">
+    <p>IDOR, privilege escalation, broken authentication workflows.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps5')">
+     Business Logic Vulnerabilities
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps5">
+    <p>Workflow abuse, price manipulation, logic flaws in transaction handling.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps6')">
+     Insecure Deserialization
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps6">
+    <p>Object injection and remote code execution via serialized data.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps7')">
+     HTTP Request Smuggling
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps7">
+    <p>CL.TE / TE.CL desync attacks and front-end/back-end parsing discrepancies.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps8')">
+     File Upload & Path Traversal
+    <span class="report-badge medium">Medium</span>
+  </div>
+  <div class="report-details" id="ps8">
+    <p>File upload bypass techniques and directory traversal exploitation.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps9')">
+     JWT & OAuth Attacks
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps9">
+    <p>Token manipulation, signature bypass, and OAuth misconfigurations.</p>
+  </div>
+</div>
+
+<div class="report-card">
+  <div class="report-title" onclick="toggleReport('ps10')">
+     Race Conditions & Advanced Logic Flaws
+    <span class="report-badge hard">Hard</span>
+  </div>
+  <div class="report-details" id="ps10">
+    <p>Timing attacks, concurrent request abuse, and state manipulation issues.</p>
+  </div>
+</div>
+
+
+    <!-- 2️⃣ CTF Rooms -->
+    <h3>CTF Challenges</h3>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('ctf1')">
+        🏆 Wgel CTF – Room 1 
+        <span class="report-badge medium">Medium</span>
+      </div>
+      <div class="report-details" id="ctf1">
+        <p>Platform: TryHackMe</p>
+        <p>Status: Completed</p>
+        <p>Write-up: Redacted for public display</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('ctf2')">
+        🏆 Vulnversity CTF – Room 2 
+        <span class="report-badge hard">Hard</span>
+      </div>
+      <div class="report-details" id="ctf2">
+        <p>Platform: HackTheBox</p>
+        <p>Status: Completed</p>
+        <p>Write-up: Redacted for public display</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('ctf3')">
+        🏆 Internal CTF – AD Room 
+        <span class="report-badge medium">Medium</span>
+      </div>
+      <div class="report-details" id="ctf3">
+        <p>Platform: Internal / Private</p>
+        <p>Status: Completed</p>
+        <p>Write-up: Redacted for public display</p>
+      </div>
+    </div>
+
+    <!-- 3️⃣ Vulnerability Reports -->
+    <h3>Vulnerability Reports</h3>
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('idor1')">
+        🔹 IDOR Vulnerability 
+        <span class="report-badge high">High</span>
+      </div>
+      <div class="report-details" id="idor1">
+        <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
+        <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
+        <p><strong>Steps:</strong> Redacted for public website.</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('sqli1')">
+        🔹 SQL Injection 
+        <span class="report-badge critical">Critical</span>
+      </div>
+      <div class="report-details" id="sqli1">
+        <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
+        <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
+        <p><strong>Steps:</strong> Redacted for public website.</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-title" onclick="toggleReport('csrf1')">
+        🔹 CSRF Vulnerability 
+        <span class="report-badge medium">Medium</span>
+      </div>
+      <div class="report-details" id="csrf1">
+        <p><strong>Summary:</strong> CSRF attack possible on reservation endpoint. Data sanitized for public display.</p>
+        <p><strong>Impact:</strong> Unauthorized actions on behalf of users, phishing risk.</p>
+        <p><strong>Steps:</strong> Redacted for public website.</p>
+      </div>
+    </div>
+
+  </div>
 
   <!-- Contact -->
   <div class="card">
