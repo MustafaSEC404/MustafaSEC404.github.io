@@ -57,50 +57,97 @@
   </div>
 
   <!-- Reports & CTFs -->
-  <div class="card">
-    <h2>Reports & CTFs</h2>
-    
-    <!-- Vulnerabilities Reports -->
-    <h3>Vulnerabilities Reports</h3>
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('idor1')">🔹 IDOR Vulnerability (High)</div>
-      <div class="report-details" id="idor1">
-        <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
-        <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
-        <p><strong>Steps:</strong> Redacted for public website.</p>
-      </div>
-    </div>
+ <div class="card">
+  <h2>Reports & CTFs</h2>
 
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('sqli1')">🔹 SQL Injection (Critical)</div>
-      <div class="report-details" id="sqli1">
-        <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
-        <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
-        <p><strong>Steps:</strong> Redacted for public website.</p>
-      </div>
+  <!-- 1️⃣ PortSwigger Labs -->
+  <h3>PortSwigger Labs</h3>
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('pslab1')">💻 Lab 1 – SQL Injection (Medium)</div>
+    <div class="report-details" id="pslab1">
+      <p>Category: Web Security / SQL Injection</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
     </div>
+  </div>
 
-    <!-- CTF Challenges -->
-    <h3>CTF Challenges</h3>
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('ctf1')">🏆 Wgel CTF – Room 1 Completed</div>
-      <div class="report-details" id="ctf1">
-        <p>Platform: TryHackMe</p>
-        <p>Level: Medium</p>
-        <p>Write-up: Solved without spoilers for public display.</p>
-      </div>
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('pslab2')">💻 Lab 2 – CSRF Vulnerability (Low)</div>
+    <div class="report-details" id="pslab2">
+      <p>Category: Web Security / CSRF</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
     </div>
+  </div>
 
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('ctf2')">🏆 Vulnversity CTF – Room 2 Completed</div>
-      <div class="report-details" id="ctf2">
-        <p>Platform: HackTheBox</p>
-        <p>Level: Hard</p>
-        <p>Write-up: Redacted for public display.</p>
-      </div>
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('pslab3')">💻 Lab 3 – Broken Access Control (Medium)</div>
+    <div class="report-details" id="pslab3">
+      <p>Category: Web Security / Access Control</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
     </div>
+  </div>
 
-  </div> <!-- End Reports & CTFs Card -->
+  <!-- 2️⃣ CTF Rooms -->
+  <h3>CTF Challenges</h3>
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('ctf1')">🏆 Wgel CTF – Room 1 (Medium)</div>
+    <div class="report-details" id="ctf1">
+      <p>Platform: TryHackMe</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('ctf2')">🏆 Vulnversity CTF – Room 2 (Hard)</div>
+    <div class="report-details" id="ctf2">
+      <p>Platform: HackTheBox</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('ctf3')">🏆 Internal CTF – AD Room (Medium)</div>
+    <div class="report-details" id="ctf3">
+      <p>Platform: Internal / Private</p>
+      <p>Status: Completed</p>
+      <p>Write-up: Redacted for public display</p>
+    </div>
+  </div>
+
+  <!-- 3️⃣ Vulnerability Reports -->
+  <h3>Vulnerability Reports</h3>
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('idor1')">🔹 IDOR Vulnerability (High)</div>
+    <div class="report-details" id="idor1">
+      <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
+      <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
+      <p><strong>Steps:</strong> Redacted for public website.</p>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('sqli1')">🔹 SQL Injection (Critical)</div>
+    <div class="report-details" id="sqli1">
+      <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
+      <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
+      <p><strong>Steps:</strong> Redacted for public website.</p>
+    </div>
+  </div>
+
+  <div class="report-card">
+    <div class="report-title" onclick="toggleReport('csrf1')">🔹 CSRF Vulnerability (Medium)</div>
+    <div class="report-details" id="csrf1">
+      <p><strong>Summary:</strong> CSRF attack possible on reservation endpoint. Data sanitized for public display.</p>
+      <p><strong>Impact:</strong> Unauthorized actions on behalf of users, phishing risk.</p>
+      <p><strong>Steps:</strong> Redacted for public website.</p>
+    </div>
+  </div>
+
+</div>
 
   <!-- Contact -->
   <div class="card">
