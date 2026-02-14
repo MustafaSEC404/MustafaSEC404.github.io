@@ -8,23 +8,28 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #0f172a, #05080f);
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
     color: #e2e8f0;
-    line-height: 1.8;
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
 header {
     text-align: center;
-    padding: 100px 20px 60px;
+    padding: 100px 20px 70px;
 }
 
 .profile {
     width: 170px;
     border-radius: 50%;
     border: 3px solid #38bdf8;
-    box-shadow: 0 0 25px #38bdf880;
+    box-shadow: 0 0 35px #38bdf860;
     margin-bottom: 20px;
+    transition: transform 0.4s ease;
+}
+.profile:hover {
+    transform: scale(1.05);
 }
 
 h1 {
@@ -38,17 +43,37 @@ h1 {
     font-size: 1.1rem;
 }
 
+.tagline {
+    margin-top: 15px;
+    color: #64748b;
+    font-style: italic;
+}
+
+.btn {
+    margin-top: 25px;
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: #38bdf8;
+    color: #0f172a;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn:hover {
+    background: #0ea5e9;
+}
+
 section {
     max-width: 1100px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 70px 20px;
 }
 
 h2 {
     color: #38bdf8;
-    border-left: 4px solid #38bdf8;
-    padding-left: 15px;
     margin-bottom: 25px;
+    position: relative;
 }
 
 .card {
@@ -57,13 +82,17 @@ h2 {
     padding: 35px;
     margin: 30px 0;
     border-radius: 14px;
-    box-shadow: 0 0 35px rgba(56,189,248,0.08);
+    transition: 0.4s;
+}
+.card:hover {
+    box-shadow: 0 0 35px rgba(56,189,248,0.15);
+    transform: translateY(-5px);
 }
 
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 20px;
 }
 
 .metric-box {
@@ -99,8 +128,9 @@ h2 {
 
 .footer {
     text-align: center;
-    padding: 50px;
+    padding: 60px;
     color: #64748b;
+    border-top: 1px solid #1e293b;
 }
 </style>
 
@@ -120,11 +150,15 @@ function toggleContent(id){
     <div class="subtitle">
         Offensive Security Practitioner | Web Exploitation | Active Directory | Red Team Operations
     </div>
+    <div class="tagline">
+        Turning architectural weaknesses into measurable business risk.
+    </div>
+    <a href="Mustafa_Mohamed_CV.pdf" class="btn">Download CV</a>
 </header>
 
 <section>
 
-<h2>Offensive Metrics</h2>
+<h2>Offensive Security Metrics</h2>
 <div class="card metrics-grid">
     <div class="metric-box">120+ Web Security Labs Completed</div>
     <div class="metric-box">Advanced SQLi, XSS, SSRF, Logic Flaws</div>
@@ -134,122 +168,87 @@ function toggleContent(id){
     <div class="metric-box">CRTP-Level AD Techniques</div>
 </div>
 
+<h2>Offensive Methodology</h2>
+<div class="card">
+Reconnaissance → Surface Mapping → Input Vector Analysis →
+Controlled Exploitation → Privilege Escalation →
+Impact Validation → Secure Remediation Strategy
+</div>
+
+<h2>Active Directory Exploitation Focus</h2>
+<div class="card">
+- ACL Abuse & Privilege Escalation Chains<br>
+- Kerberoasting & Credential Extraction<br>
+- Lateral Movement Techniques<br>
+- BloodHound-Based Attack Path Mapping<br>
+- Misconfiguration Exploitation & Persistence
+</div>
+
 <h2>High-Impact Vulnerability Portfolio</h2>
 
 <div class="card">
 <p>
-From multiple validated security findings, the following vulnerabilities
-represent the highest business impact and technical depth discovered during
-real-world assessments.
+From multiple validated findings, the following vulnerabilities represent the highest business impact and technical depth.
 </p>
 </div>
 
-<!-- 1️⃣ IDOR -->
+<!-- IDOR -->
 <div class="card">
 <span class="badge high">HIGH</span>
-<h3>1. Unauthenticated Object-Level Access Control Failure (IDOR)</h3>
-
+<h3>1. Unauthenticated Object-Level Access Control Failure</h3>
 <div class="toggle" onclick="toggleContent('r1')">View Technical Breakdown ▼</div>
 <div class="content" id="r1">
-
-<p><strong>Attack Surface</strong><br>
-Backend reservation endpoint exposing records via predictable identifiers.</p>
-
-<p><strong>Core Weakness</strong><br>
-No authentication or object-level authorization enforcement.</p>
-
-<p><strong>Exploitation Logic</strong><br>
-Identifier manipulation enabled enumeration of arbitrary guest records.
-The system trusted client-supplied parameters without ownership validation.</p>
-
-<p><strong>Impact</strong><br>
-Exposure of guest PII, regulatory risk, phishing enablement.</p>
-
-<p><strong>Security Maturity Gap</strong><br>
-Lack of defense-in-depth controls such as monitoring or rate limiting.</p>
-
+Attack Surface: Predictable object identifiers exposed sensitive records.<br><br>
+Core Weakness: Missing authentication and object-level authorization.<br><br>
+Exploitation Logic: Parameter manipulation enabled arbitrary record enumeration.<br><br>
+Impact: PII disclosure, phishing enablement, regulatory exposure.<br><br>
+Remediation: Enforce authentication middleware & strict object ownership validation.
 </div>
 </div>
 
-<!-- 2️⃣ CSRF -->
+<!-- CSRF -->
 <div class="card">
 <span class="badge high">HIGH</span>
 <h3>2. CSRF Leading to Administrative Account Takeover</h3>
-
 <div class="toggle" onclick="toggleContent('r2')">View Technical Breakdown ▼</div>
 <div class="content" id="r2">
-
-<p><strong>Attack Surface</strong><br>
-Password-change endpoint for privileged users.</p>
-
-<p><strong>Core Weakness</strong><br>
-Absence of CSRF tokens and improper cookie configuration.</p>
-
-<p><strong>Attack Chain</strong><br>
-Authenticated admin session abused through forged external request,
-resulting in silent password modification.</p>
-
-<p><strong>Impact</strong><br>
-Administrative takeover and persistence opportunity.</p>
-
-<p><strong>Architectural Lesson</strong><br>
-State-changing actions must enforce anti-CSRF mechanisms and strict cookie policies.</p>
-
+Root Cause: Absence of CSRF tokens & weak cookie configuration.<br><br>
+Attack Chain: Authenticated admin session abused via forged external request.<br><br>
+Impact: Silent password change and privilege persistence.<br><br>
+Remediation: Anti-CSRF tokens, SameSite=Strict cookies, Origin validation.
 </div>
 </div>
 
-<!-- 3️⃣ SQL Injection -->
+<!-- SQLi -->
 <div class="card">
 <span class="badge critical">CRITICAL</span>
 <h3>3. SQL Injection in Reservation Processing Logic</h3>
-
 <div class="toggle" onclick="toggleContent('r3')">View Technical Breakdown ▼</div>
 <div class="content" id="r3">
-
-<p><strong>Attack Surface</strong><br>
-Dynamic SQL query constructed using unsanitized user input.</p>
-
-<p><strong>Root Cause</strong><br>
-Server-side query concatenation without parameterization.</p>
-
-<p><strong>Exploitation Approach</strong><br>
-Blind injection techniques leveraged due to error suppression.
-Progressive enumeration performed to extract database metadata.</p>
-
-<p><strong>Impact</strong><br>
-Potential full database disclosure and lateral attack pivoting.</p>
-
-<p><strong>Secure Engineering Recommendation</strong><br>
-Mandatory use of parameterized queries and strict backend validation.</p>
-
+Root Cause: Dynamic query concatenation without parameterization.<br><br>
+Exploitation Approach: Blind SQL techniques used due to error suppression.<br><br>
+Impact: Full database disclosure potential.<br><br>
+Remediation: Strict parameterized queries & backend validation.
 </div>
 </div>
 
-<!-- 4️⃣ Additional Finding -->
+<!-- Additional -->
 <div class="card">
 <span class="badge medium">MEDIUM</span>
-<h3>4. Access Control Logic Flaw in Role Segmentation</h3>
-<p>
-Improper role validation allowed privilege boundary bypass under specific workflow conditions.
-Impact limited but demonstrated systemic authorization design weakness.
-</p>
+<h3>4. Role-Based Access Control Logic Flaw</h3>
+Improper role validation enabled privilege boundary bypass under specific workflow conditions.
 </div>
 
-<!-- 5️⃣ Additional Finding -->
 <div class="card">
 <span class="badge high">HIGH</span>
-<h3>5. Insecure Direct API Exposure (Enumeration Risk)</h3>
-<p>
-Internal API endpoint accessible without adequate access validation,
-allowing structured data harvesting through predictable parameters.
-</p>
+<h3>5. Insecure Internal API Exposure</h3>
+API endpoint lacked proper access validation, enabling structured data harvesting.
 </div>
-
 
 </section>
 
 <div class="footer">
-Offensive Security Portfolio – Mustafa Mohamed Ibrahim
+© 2026 Mustafa Mohamed Ibrahim – Offensive Security Portfolio
 </div>
 
 </body>
