@@ -134,81 +134,117 @@ function toggleContent(id){
     <div class="metric-box">CRTP-Level AD Techniques</div>
 </div>
 
-<h2>Security Assessment Extracts</h2>
+<h2>High-Impact Vulnerability Portfolio</h2>
 
 <div class="card">
+<p>
+From multiple validated security findings, the following vulnerabilities
+represent the highest business impact and technical depth discovered during
+real-world assessments.
+</p>
+</div>
+
+<!-- 1️⃣ IDOR -->
+<div class="card">
 <span class="badge high">HIGH</span>
-<h3>Unauthenticated Object-Level Access Control Failure (IDOR)</h3>
+<h3>1. Unauthenticated Object-Level Access Control Failure (IDOR)</h3>
 
-<div class="toggle" onclick="toggleContent('r1')">View Deep Technical Analysis ▼</div>
-
+<div class="toggle" onclick="toggleContent('r1')">View Technical Breakdown ▼</div>
 <div class="content" id="r1">
 
-<p><strong>Operational Context</strong><br>
-A backend reservation service exposed sensitive guest information based solely on user-supplied object identifiers.
-No authentication middleware was enforced at the API layer.</p>
+<p><strong>Attack Surface</strong><br>
+Backend reservation endpoint exposing records via predictable identifiers.</p>
 
-<p><strong>Architectural Weakness</strong><br>
-The system trusted client-controlled parameters without validating:
-- Session state
-- Resource ownership
-- Access policy enforcement</p>
+<p><strong>Core Weakness</strong><br>
+No authentication or object-level authorization enforcement.</p>
 
-<p><strong>Attack Modeling</strong><br>
-Predictable identifiers allowed enumeration of room records.
-By iterating identifiers, arbitrary guest records were retrieved.
-No rate-limiting or monitoring prevented large-scale extraction.</p>
-
-<p><strong>Business Impact Analysis</strong><br>
-- Full disclosure of PII<br>
-- Social engineering enablement<br>
-- Regulatory exposure<br>
-- Brand trust degradation</p>
-
-<p><strong>Secure Architecture Recommendation</strong><br>
-Implement object-level authorization checks.
-Enforce authentication middleware.
-Replace direct references with indirect mapping tokens.
-Introduce monitoring & anomaly detection.</p>
-
-</div>
-</div>
-
-
-<div class="card">
-<span class="badge high">HIGH</span>
-<h3>Cross-Site Request Forgery – Administrative Account Compromise</h3>
-
-<div class="toggle" onclick="toggleContent('r2')">View Deep Technical Analysis ▼</div>
-
-<div class="content" id="r2">
-
-<p><strong>Operational Context</strong><br>
-A privileged password-change endpoint accepted state-changing requests without CSRF validation.</p>
-
-<p><strong>Root Cause</strong><br>
-- Absence of anti-CSRF token<br>
-- No Origin/Referer validation<br>
-- Session cookies lacked SameSite restrictions</p>
-
-<p><strong>Attack Chain Simulation</strong><br>
-1. Admin authenticates normally.<br>
-2. Malicious external page triggers forged POST request.<br>
-3. Browser auto-attaches session cookie.<br>
-4. Password silently modified.</p>
+<p><strong>Exploitation Logic</strong><br>
+Identifier manipulation enabled enumeration of arbitrary guest records.
+The system trusted client-supplied parameters without ownership validation.</p>
 
 <p><strong>Impact</strong><br>
-- Administrative account takeover<br>
-- Privilege persistence<br>
-- Potential full platform compromise</p>
+Exposure of guest PII, regulatory risk, phishing enablement.</p>
 
-<p><strong>Remediation</strong><br>
-CSRF tokens for all state-changing actions.
-Strict SameSite cookies.
-Server-side Origin validation.</p>
+<p><strong>Security Maturity Gap</strong><br>
+Lack of defense-in-depth controls such as monitoring or rate limiting.</p>
 
 </div>
 </div>
+
+<!-- 2️⃣ CSRF -->
+<div class="card">
+<span class="badge high">HIGH</span>
+<h3>2. CSRF Leading to Administrative Account Takeover</h3>
+
+<div class="toggle" onclick="toggleContent('r2')">View Technical Breakdown ▼</div>
+<div class="content" id="r2">
+
+<p><strong>Attack Surface</strong><br>
+Password-change endpoint for privileged users.</p>
+
+<p><strong>Core Weakness</strong><br>
+Absence of CSRF tokens and improper cookie configuration.</p>
+
+<p><strong>Attack Chain</strong><br>
+Authenticated admin session abused through forged external request,
+resulting in silent password modification.</p>
+
+<p><strong>Impact</strong><br>
+Administrative takeover and persistence opportunity.</p>
+
+<p><strong>Architectural Lesson</strong><br>
+State-changing actions must enforce anti-CSRF mechanisms and strict cookie policies.</p>
+
+</div>
+</div>
+
+<!-- 3️⃣ SQL Injection -->
+<div class="card">
+<span class="badge critical">CRITICAL</span>
+<h3>3. SQL Injection in Reservation Processing Logic</h3>
+
+<div class="toggle" onclick="toggleContent('r3')">View Technical Breakdown ▼</div>
+<div class="content" id="r3">
+
+<p><strong>Attack Surface</strong><br>
+Dynamic SQL query constructed using unsanitized user input.</p>
+
+<p><strong>Root Cause</strong><br>
+Server-side query concatenation without parameterization.</p>
+
+<p><strong>Exploitation Approach</strong><br>
+Blind injection techniques leveraged due to error suppression.
+Progressive enumeration performed to extract database metadata.</p>
+
+<p><strong>Impact</strong><br>
+Potential full database disclosure and lateral attack pivoting.</p>
+
+<p><strong>Secure Engineering Recommendation</strong><br>
+Mandatory use of parameterized queries and strict backend validation.</p>
+
+</div>
+</div>
+
+<!-- 4️⃣ Additional Finding -->
+<div class="card">
+<span class="badge medium">MEDIUM</span>
+<h3>4. Access Control Logic Flaw in Role Segmentation</h3>
+<p>
+Improper role validation allowed privilege boundary bypass under specific workflow conditions.
+Impact limited but demonstrated systemic authorization design weakness.
+</p>
+</div>
+
+<!-- 5️⃣ Additional Finding -->
+<div class="card">
+<span class="badge high">HIGH</span>
+<h3>5. Insecure Direct API Exposure (Enumeration Risk)</h3>
+<p>
+Internal API endpoint accessible without adequate access validation,
+allowing structured data harvesting through predictable parameters.
+</p>
+</div>
+
 
 </section>
 
