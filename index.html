@@ -3,257 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mustafa Mohamed Ibrahim | Pentester</title>
+<title>Mustafa Mohamed Ibrahim | Offensive Security</title>
+
 <style>
-  /* Global Styles */
-  body { font-family: 'Arial', sans-serif; background:#0f172a; color:white; margin:0; padding:0; line-height:1.6;}
-  a { color:#38bdf8; text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  header { background:#1e293b; padding:50px 20px; text-align:center; }
-  h1 { color:#38bdf8; margin:10px 0; font-size:2.5em; }
-  h2 { border-bottom: 2px solid #38bdf8; padding-bottom:5px; margin-top:40px; }
-  h3 { margin-top:20px; }
-  section { padding:40px 20px; max-width:1000px; margin:auto; }
-  .card { background:#1e293b; margin:20px 0; padding:25px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.3);}
-  img.profile { width:180px; border-radius:50%; display:block; margin:auto; border:3px solid #38bdf8;}
-  ul { list-style-type: disc; padding-left:20px; }
-  
-  /* Report & CTF Styles */
-  .report-card { background:#293242; padding:15px; border-radius:10px; margin:15px 0; }
-  .report-title { font-weight:bold; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
-  .report-badge { padding:2px 6px; border-radius:4px; font-size:0.8em; font-weight:bold; }
-  .low { background:#16a34a; color:white; }
-  .medium { background:#eab308; color:black; }
-  .hard { background:#f97316; color:white; }
-  .high { background:#dc2626; color:white; }
-  .critical { background:#991b1b; color:white; }
-  .report-details { display:none; margin-top:10px; padding-left:10px; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0b1220;
+    color: #e2e8f0;
+    line-height: 1.7;
+}
+
+header {
+    text-align: center;
+    padding: 90px 20px 60px;
+    background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+h2 {
+    color: #38bdf8;
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 8px;
+}
+
+.card {
+    background: #111827;
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.metric {
+    margin: 8px 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.high { background: #dc2626; }
+.medium { background: #eab308; color: black; }
+
+.toggle {
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #38bdf8;
+}
+
+.content {
+    display: none;
+    margin-top: 15px;
+    color: #cbd5e1;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}
 </style>
+
+<script>
+function toggleContent(id){
+    var x = document.getElementById(id);
+    x.style.display = (x.style.display === "block") ? "none" : "block";
+}
+</script>
 </head>
+
 <body>
 
 <header>
-  <img class="profile" src="WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg" alt="Mustafa Mohamed">
-  <h1>Mustafa Mohamed Ibrahim</h1>
-  <p>Cybersecurity Practitioner | Penetration Testing | Red Teaming | Web App Security</p>
+    <h1>Mustafa Mohamed Ibrahim</h1>
+    <div class="subtitle">
+        Offensive Security Practitioner | Web Exploitation | Active Directory | Red Team Operations
+    </div>
 </header>
 
 <section>
 
-  <!-- About Me -->
-  <div class="card">
-    <h2>About Me</h2>
-    <p>Motivated Cybersecurity Practitioner with hands-on experience in pentesting, red teaming, web exploitation, and Active Directory attacks. Passionate about vulnerability discovery and continuous skill development. Skilled in offensive operations, report writing, and CTF challenges.</p>
-  </div>
-
-  <!-- Experience -->
-  <div class="card">
-    <h2>Experience & Projects</h2>
-    <ul>
-      <li>Internal Security Projects – Confidential Org (2023–Present)</li>
-      <li>Server & Network Administration – Sun-Rise Hotels Group</li>
-      <li>CTF Challenges Solved: Wgel, Vulnversity, Internal CTF, AD rooms</li>
-      <li>Vulnerabilities Found: 4 Valid Reports for private company</li>
-    </ul>
-  </div>
-
-  <!-- Skills -->
-  <div class="card">
-    <h2>Skills & Tools</h2>
-    <p>Penetration Testing, Web Exploitation, Active Directory Attacks, Python Scripting, Burp Suite, Nmap, Metasploit, BloodHound, Hashcat, Nessus, Wireshark, SQLMap, Bash, PowerShell.</p>
-  </div>
-
-  <!-- Reports & CTFs -->
-  <div class="card">
-    <h2>Reports & CTFs</h2>
-
-    <!-- 1️⃣ PortSwigger Labs -->
-<h3>PortSwigger Web Security Academy – All Labs Completed</h3>
-
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps1')">
-     SQL Injection
-  </div>
-  <div class="report-details" id="ps1">
-    <p>Union-based, Error-based, Blind SQLi, and advanced exploitation techniques.</p>
-  </div>
+<h2>Offensive Security Metrics</h2>
+<div class="card">
+    <div class="metric">• 120+ Web Security Labs Completed</div>
+    <div class="metric">• Advanced Coverage: SQLi, XSS, SSRF, Access Control, Deserialization</div>
+    <div class="metric">• 70+ CTF Scenarios (Web & AD Focused)</div>
+    <div class="metric">• 3+ Years Continuous Offensive Security Practice</div>
+    <div class="metric">• 4 Validated High / Critical Real-World Vulnerabilities</div>
+    <div class="metric">• Active Directory Exploitation (CRTP-Level Techniques)</div>
 </div>
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps2')">
-     Cross-Site Scripting (XSS)
-  </div>
-  <div class="report-details" id="ps2">
-    <p>Reflected, Stored, DOM-based XSS with advanced payload crafting.</p>
-  </div>
+<h2>Offensive Methodology</h2>
+<div class="card">
+    Reconnaissance → Surface Mapping → Input Vector Analysis → 
+    Exploitation → Privilege Escalation → Post-Exploitation Impact Assessment → 
+    Secure Remediation Strategy
 </div>
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps3')">
-     Server-Side Request Forgery (SSRF)
-  </div>
-  <div class="report-details" id="ps3">
-    <p>Internal network access, metadata exploitation, and filter bypass techniques.</p>
-  </div>
-</div>
+<h2>Selected Security Assessment Extracts</h2>
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps4')">
-     Access Control & Authentication Bypass
-  </div>
-  <div class="report-details" id="ps4">
-    <p>IDOR, privilege escalation, broken authentication workflows.</p>
-  </div>
-</div>
+<!-- IDOR -->
+<div class="card">
+    <span class="badge high">HIGH</span>
+    <h3>Broken Access Control – Unauthenticated Object Enumeration</h3>
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps5')">
-     Business Logic Vulnerabilities
-  </div>
-  <div class="report-details" id="ps5">
-    <p>Workflow abuse, price manipulation, logic flaws in transaction handling.</p>
-  </div>
-</div>
+    <div class="toggle" onclick="toggleContent('r1')">View Analysis ▼</div>
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps6')">
-     Insecure Deserialization
-  </div>
-  <div class="report-details" id="ps6">
-    <p>Object injection and remote code execution via serialized data.</p>
-  </div>
-</div>
+    <div class="content" id="r1">
+        <p><strong>Root Cause</strong></p>
+        Missing authentication & authorization enforcement on direct object reference.
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps7')">
-     HTTP Request Smuggling
-  </div>
-  <div class="report-details" id="ps7">
-    <p>CL.TE / TE.CL desync attacks and front-end/back-end parsing discrepancies.</p>
-  </div>
-</div>
+        <p><strong>Attack Logic</strong></p>
+        Object identifiers were predictable and accepted without ownership validation,
+        enabling enumeration of arbitrary records.
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps8')">
-     File Upload & Path Traversal
-  </div>
-  <div class="report-details" id="ps8">
-    <p>File upload bypass techniques and directory traversal exploitation.</p>
-  </div>
-</div>
+        <p><strong>Impact</strong></p>
+        Exposure of sensitive guest PII, regulatory risk, phishing enablement.
 
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps9')">
-     JWT & OAuth Attacks
-  </div>
-  <div class="report-details" id="ps9">
-    <p>Token manipulation, signature bypass, and OAuth misconfigurations.</p>
-  </div>
-</div>
-
-<div class="report-card">
-  <div class="report-title" onclick="toggleReport('ps10')">
-     Race Conditions & Advanced Logic Flaws
-  </div>
-  <div class="report-details" id="ps10">
-    <p>Timing attacks, concurrent request abuse, and state manipulation issues.</p>
-  </div>
-</div>
-
-
-    <!-- 2️⃣ CTF Rooms -->
-    <h3>CTF Challenges</h3>
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('ctf1')">
-        🏆 Wgel CTF – Room 1 
-        <span class="report-badge medium">Medium</span>
-      </div>
-      <div class="report-details" id="ctf1">
-        <p>Platform: TryHackMe</p>
-        <p>Status: Completed</p>
-        <p>Write-up: Redacted for public display</p>
-      </div>
+        <p><strong>Remediation</strong></p>
+        Enforce session validation, apply object-level access control, indirect reference mapping.
     </div>
+</div>
 
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('ctf2')">
-        🏆 Vulnversity CTF – Room 2 
-        <span class="report-badge hard">Hard</span>
-      </div>
-      <div class="report-details" id="ctf2">
-        <p>Platform: HackTheBox</p>
-        <p>Status: Completed</p>
-        <p>Write-up: Redacted for public display</p>
-      </div>
+<!-- CSRF -->
+<div class="card">
+    <span class="badge high">HIGH</span>
+    <h3>CSRF – Privileged Account Password Manipulation</h3>
+
+    <div class="toggle" onclick="toggleContent('r2')">View Analysis ▼</div>
+
+    <div class="content" id="r2">
+        <p><strong>Root Cause</strong></p>
+        Absence of anti-CSRF tokens and insufficient cookie restrictions.
+
+        <p><strong>Attack Chain</strong></p>
+        Authenticated admin session abused via forged POST request delivered externally.
+
+        <p><strong>Impact</strong></p>
+        Administrative account takeover and potential full platform compromise.
+
+        <p><strong>Remediation</strong></p>
+        Implement CSRF tokens, validate Origin/Referer headers, enforce SameSite cookies.
     </div>
-
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('ctf3')">
-        🏆 Internal CTF – AD Room 
-        <span class="report-badge medium">Medium</span>
-      </div>
-      <div class="report-details" id="ctf3">
-        <p>Platform: Internal / Private</p>
-        <p>Status: Completed</p>
-        <p>Write-up: Redacted for public display</p>
-      </div>
-    </div>
-
-    <!-- 3️⃣ Vulnerability Reports -->
-    <h3>Vulnerability Reports</h3>
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('idor1')">
-        🔹 IDOR Vulnerability 
-        <span class="report-badge high">High</span>
-      </div>
-      <div class="report-details" id="idor1">
-        <p><strong>Summary:</strong> IDOR allows access to sensitive data without authentication. Data sanitized for public display.</p>
-        <p><strong>Impact:</strong> Unauthorized access, phishing risk, reputation damage.</p>
-        <p><strong>Steps:</strong> Redacted for public website.</p>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('sqli1')">
-        🔹 SQL Injection 
-        <span class="report-badge critical">Critical</span>
-      </div>
-      <div class="report-details" id="sqli1">
-        <p><strong>Summary:</strong> SQL Injection in reservation endpoint persists after attempted fix.</p>
-        <p><strong>Impact:</strong> Data extraction, internal reconnaissance, potential lateral movement.</p>
-        <p><strong>Steps:</strong> Redacted for public website.</p>
-      </div>
-    </div>
-
-    <div class="report-card">
-      <div class="report-title" onclick="toggleReport('csrf1')">
-        🔹 CSRF Vulnerability 
-        <span class="report-badge medium">Medium</span>
-      </div>
-      <div class="report-details" id="csrf1">
-        <p><strong>Summary:</strong> CSRF attack possible on reservation endpoint. Data sanitized for public display.</p>
-        <p><strong>Impact:</strong> Unauthorized actions on behalf of users, phishing risk.</p>
-        <p><strong>Steps:</strong> Redacted for public website.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Contact -->
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:m.bafy10@gmail.com">m.bafy10@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/mustafa-mohamed-0a77a1197/" target="_blank">Mustafa Mohamed</a></p>
-  </div>
+</div>
 
 </section>
 
-<script>
-function toggleReport(id){
-  var x = document.getElementById(id);
-  x.style.display = x.style.display === "none" ? "block" : "none";
-}
-</script>
+<div class="footer">
+    © 2026 Mustafa Mohamed Ibrahim – Offensive Security Portfolio
+</div>
 
 </body>
 </html>
