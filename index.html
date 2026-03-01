@@ -15,66 +15,73 @@ body {
 
 header {
     text-align: center;
-    padding: 90px 20px 60px;
+    padding: 70px 20px 40px;
     border-bottom: 1px solid #1f2937;
 }
 
-h1 {
-    font-size: 2.7rem;
-    margin-bottom: 10px;
-}
+h1 { margin-bottom: 10px; }
 
 .title {
     color: #38bdf8;
     font-weight: 500;
 }
 
-.metrics {
-    margin-top: 25px;
+.nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    color: #9ca3af;
-    font-size: 0.95rem;
+    gap: 20px;
+    margin-top: 30px;
 }
 
-section {
+.nav button {
+    background: none;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav button.active,
+.nav button:hover {
+    background: #38bdf8;
+    color: #0b1120;
+}
+
+.tab {
+    display: none;
     max-width: 950px;
     margin: auto;
-    padding: 70px 20px;
+    padding: 60px 20px;
 }
 
-h2 {
-    color: #38bdf8;
-    margin-bottom: 25px;
-}
+.tab.active { display: block; }
 
 .card {
     background: #111827;
     border: 1px solid #1f2937;
-    padding: 30px;
+    padding: 25px;
     border-radius: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .badge {
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-size: 0.75rem;
     font-weight: bold;
     display: inline-block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .critical { background: #7f1d1d; }
 .high { background: #991b1b; }
-.medium { background: #92400e; }
 
 a.download {
     display: inline-block;
-    margin-top: 15px;
-    padding: 8px 16px;
+    margin-top: 12px;
+    padding: 7px 14px;
     background: #38bdf8;
     color: #0b1120;
     text-decoration: none;
@@ -89,69 +96,129 @@ footer {
     color: #6b7280;
 }
 </style>
+
+<script>
+function openTab(tabName){
+    let tabs = document.getElementsByClassName("tab");
+    let buttons = document.querySelectorAll(".nav button");
+
+    for(let tab of tabs){
+        tab.classList.remove("active");
+    }
+
+    for(let btn of buttons){
+        btn.classList.remove("active");
+    }
+
+    document.getElementById(tabName).classList.add("active");
+    event.target.classList.add("active");
+}
+</script>
 </head>
 
 <body>
 
 <header>
-    <h1>Mustafa Mohamed Ibrahim</h1>
-    <div class="title">
-        Penetration Tester | Internal, Web & Network Security
-    </div>
+<h1>Mustafa Mohamed Ibrahim</h1>
+<div class="title">
+Penetration Tester | Internal, Web & Network Security
+</div>
 
-    <div class="metrics">
-        <div>100+ Web Security Labs</div>
-        <div>40+ CTF Scenarios</div>
-        <div>3+ Years Continuous Practice</div>
-        <div>Validated High & Critical Findings</div>
-    </div>
+<div class="nav">
+<button class="active" onclick="openTab('home')">Home</button>
+<button onclick="openTab('cert')">Certificates</button>
+<button onclick="openTab('reports')">Reports</button>
+<button onclick="openTab('method')">Methodology</button>
+<button onclick="openTab('contact')">Contact</button>
+</div>
 </header>
 
-<section>
-<h2>Professional Summary</h2>
+<!-- HOME -->
+<div id="home" class="tab active">
 <div class="card">
-Penetration Tester specializing in internal infrastructure security, web application exploitation, and Active Directory attack path analysis. Experienced in identifying business-impact vulnerabilities and validating real-world exploitation scenarios across enterprise environments. Strong background in network security assessments, privilege escalation chains, and structured reporting aligned with professional penetration testing methodologies.
+<h2>Professional Summary</h2>
+Penetration Tester specializing in internal infrastructure security,
+web application exploitation, Active Directory attack paths, and
+network security assessments. Experienced in validating real-world
+business risks through controlled exploitation and structured reporting.
 </div>
-</section>
 
-<section>
+<div class="card">
+<h2>Core Metrics</h2>
+• 100+ Web Security Labs  
+• 40+ CTF Scenarios (Web & AD)  
+• 3+ Years Continuous Practice  
+• Validated High & Critical Findings  
+</div>
+</div>
+
+<!-- CERTIFICATES -->
+<div id="cert" class="tab">
+<div class="card">
+<h2>Certifications & Training</h2>
+• CRTP – Active Directory Exploitation  
+• eWPT & eWPTX – Web Application Penetration Testing  
+• eJPT – Junior Penetration Tester  
+• CEH (Self-Study)  
+• OSCP / OSCP+ Techniques (Self-Study Track)  
+• Python for Offensive Security Automation  
+• VMware vSphere & FortiGate Fundamentals  
+• CCNA / CCNP ENCOR Concepts  
+</div>
+</div>
+
+<!-- REPORTS -->
+<div id="reports" class="tab">
 <h2>Selected Security Findings (Redacted)</h2>
 
 <div class="card">
 <span class="badge critical">CRITICAL</span>
-<h3>SQL Injection – Reservation Processing Endpoint</h3>
-<p><strong>Business Risk:</strong> Potential full database disclosure, internal infrastructure enumeration, and exposure of sensitive reservation data.</p>
-<p><strong>Technical Insight:</strong> Unsanitized GET parameter directly incorporated into backend SQL query. Error-based responses confirmed injection on MySQL environment. Issue persisted after infrastructure-level mitigation, indicating missing application-layer fix.</p>
-<p><strong>Mitigation:</strong> Strict input validation, parameterized queries, suppression of verbose database errors.</p>
+<h3>SQL Injection – Reservation Endpoint</h3>
+<p><strong>Business Risk:</strong> Potential full database disclosure and infrastructure enumeration.</p>
+<p><strong>Technical Insight:</strong> Unsanitized GET parameter directly incorporated into backend SQL query (MySQL). Vulnerability persisted after infrastructure-level mitigation.</p>
+<p><strong>Mitigation:</strong> Parameterized queries and strict input validation.</p>
 <a href="reports/sqli-redacted.pdf" class="download" target="_blank">Download Redacted Report</a>
 </div>
 
 <div class="card">
 <span class="badge high">HIGH</span>
 <h3>Unauthenticated IDOR – Guest PII Exposure</h3>
-<p><strong>Business Risk:</strong> Unauthorized disclosure of guest personal data (names, emails, phone numbers), enabling phishing campaigns and regulatory exposure.</p>
-<p><strong>Technical Insight:</strong> Missing authentication and object-level authorization allowed enumeration of reservation records via predictable room parameters.</p>
-<p><strong>Mitigation:</strong> Enforce authentication middleware and implement strict object ownership validation.</p>
+<p><strong>Business Risk:</strong> Unauthorized disclosure of guest personal data enabling phishing and regulatory risk.</p>
+<p><strong>Technical Insight:</strong> Missing authentication and object-level authorization allowed reservation enumeration via predictable parameters.</p>
+<p><strong>Mitigation:</strong> Enforce authentication and strict ownership validation.</p>
 <a href="reports/idor-redacted.pdf" class="download" target="_blank">Download Redacted Report</a>
 </div>
 
 <div class="card">
 <span class="badge high">HIGH</span>
 <h3>CSRF – Administrative Account Takeover</h3>
-<p><strong>Business Risk:</strong> Silent password change for authenticated administrators, leading to full account compromise and persistence.</p>
-<p><strong>Technical Insight:</strong> Absence of CSRF tokens and lack of origin validation allowed external crafted request to modify account credentials.</p>
-<p><strong>Mitigation:</strong> Implement CSRF tokens, enforce SameSite cookie attributes, validate Origin/Referer headers.</p>
+<p><strong>Business Risk:</strong> Silent password change for authenticated admin users.</p>
+<p><strong>Technical Insight:</strong> No CSRF tokens or origin validation enabled external crafted request exploitation.</p>
+<p><strong>Mitigation:</strong> Implement CSRF tokens and SameSite cookie attributes.</p>
 <a href="reports/csrf-redacted.pdf" class="download" target="_blank">Download Redacted Report</a>
 </div>
-
-</section>
-
-<section>
-<h2>Methodology</h2>
-<div class="card">
-Reconnaissance → Surface Mapping → Exploitation → Privilege Escalation → Lateral Movement → Impact Validation → Structured Reporting
 </div>
-</section>
+
+<!-- METHODOLOGY -->
+<div id="method" class="tab">
+<div class="card">
+<h2>Offensive Methodology</h2>
+Reconnaissance → Surface Mapping → Exploitation → Privilege Escalation →  
+Lateral Movement → Impact Validation → Structured Reporting
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="tab">
+<div class="card">
+<h2>Contact</h2>
+Email: m.bafy10@gmail.com  
+<br><br>
+LinkedIn: linkedin.com/in/mustafa-mohamed-0a77a1197  
+<br><br>
+Location: Qina, Egypt
+</div>
+</div>
 
 <footer>
 © 2026 Mustafa Mohamed Ibrahim – Security Portfolio (Redacted Engagements)
