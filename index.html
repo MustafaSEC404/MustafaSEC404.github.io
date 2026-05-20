@@ -202,6 +202,19 @@ Lateral Movement → Impact Validation → Structured Reporting
 </div>
 
 <div class="card">
+<span class="badge critical">CRITICAL</span>
+<h3>Stored Cross-Site Scripting (XSS) – Purchase Request Internal Notes</h3>
+<p><strong>Business Risk:</strong> Potential session abuse, phishing attacks, and unauthorized access to sensitive procurement data.</p>
+<p><strong>Technical Insight:</strong> Stored XSS vulnerability exists in the “Internal Notes” field where user input is rendered without proper output encoding, allowing execution of arbitrary JavaScript in the browser of any user viewing the affected record.</p>
+<p><strong>Impact:</strong> Although session cookies are protected with HttpOnly, arbitrary script execution enables DOM data exfiltration, UI manipulation, and phishing attacks within the trusted application context.</p>
+<p><strong>Mitigation:</strong> Implement contextual output encoding, input sanitization, and Content Security Policy (CSP).</p>
+<a href="Stored_XSS_Vulnerability_Report .pdf" 
+class="download" target="_blank">
+Download Report
+</a>
+</div>
+    
+<div class="card">
 <span class="badge high">HIGH</span>
 <h3>Unauthenticated IDOR – Guest PII Exposure</h3>
 <p><strong>Business Risk:</strong> Unauthorized disclosure of guest personal data enabling phishing and regulatory risk.</p>
