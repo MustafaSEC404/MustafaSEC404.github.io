@@ -194,6 +194,16 @@ Lateral Movement → Impact Validation → Structured Reporting
 
 <div class="card">
 <span class="badge critical">CRITICAL</span>
+<h3>Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure</h3>
+<p><strong>Business Risk:</strong> Complete Account Takeover (ATO) and full administrative access, leading to unauthorized data modification, exfiltration of sensitive organizational assets, and personal data leakage.</p>
+<p><strong>Technical Insight:</strong> A publicly accessible source code backup archive (<span style="color: #38bdf8;">srp.tar.gz</span>) exposed the backend codebase. Source code review of the authentication logic (<span style="color: #38bdf8;">Auth_model.php</span>) revealed a hardcoded static string backdoor constraint within an explicit logical OR (<span style="color: #38bdf8;">||</span>) operator, bypassing standard password verification functions.</p>
+<p><strong>Impact:</strong> Remote unauthenticated attackers could arbitrarily authenticate into any active administrative or user account, completely bypassing password validation if the target username is known.</p>
+<p><strong>Mitigation:</strong> Immediately eliminate the static hardcoded password condition from the source code, rely strictly on secure password verification functions like <span style="color: #38bdf8;">password_verify()</span>, remove public access to archives, and enforce strict server-level folder permissions.</p>
+<a href="Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure.pdf" class="download" target="_blank">Download Report</a>
+</div>    
+
+<div class="card">
+<span class="badge critical">CRITICAL</span>
 <h3>SQL Injection – Reservation Endpoint</h3>
 <p><strong>Business Risk:</strong> Potential full database disclosure and infrastructure enumeration.</p>
 <p><strong>Technical Insight:</strong> Unsanitized GET parameter directly incorporated into backend SQL query (MySQL). Vulnerability persisted after infrastructure-level mitigation.</p>
@@ -229,7 +239,7 @@ Download Report
 <p><strong>Business Risk:</strong> Silent password change for authenticated admin users.</p>
 <p><strong>Technical Insight:</strong> No CSRF tokens or origin validation enabled external crafted request exploitation.</p>
 <p><strong>Mitigation:</strong> Implement CSRF tokens and SameSite cookie attributes.</p>
-<a href="CSRF Vulnerability Report - Password Change Endpoint (1).pdf" class="download" target="_blank">Download Report</a>
+<a href="CSRF_Vulnerability_Report.pdf" class="download" target="_blank">Download Report</a>
 </div>
 </div>
 
