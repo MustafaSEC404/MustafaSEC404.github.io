@@ -1,31 +1,39 @@
-# Cybersecurity Penetration Testing Portfolio
+# 🛡️ Cybersecurity Penetration Testing Portfolio
 
-Welcome to my offensive security portfolio. This repository contains a curated collection of my penetration testing reports, vulnerability disclosures, and security research.
-
----
-
-## Pentest Reports & Write-ups
-
-Here you can find detailed technical reports documenting vulnerabilities I have discovered, including technical impact, proof of concept (PoC), and remediation steps.
-
-| Report Name | Vulnerability Type | Severity | Link |
-| :--- | :--- | :--- | :--- |
-| **SQL Injection Bypass** | Web / SQLi | 🔴 High | [View Report](./vulnerability-reports/SQL_Injection_Vulnerability_Still_Present_After_...) |
-| **IDOR - Unauthorized Access** | Web / Broken Object Level Auth | 🟠 Medium | [View Report](./vulnerability-reports/IDOR%20Vulnerability%20Report%20–%20Unauthorized%20Ac...) |
-| **Stored XSS Vulnerability** | Web / Cross-Site Scripting | 🟠 Medium | [View Report](./vulnerability-reports/Stored_XSS_Vulnerability_Report.pdf) |
-| **CSRF Vulnerability Report** | Web / Cross-Site Request Forgery | 🟡 Low | [View Report](./vulnerability-reports/CSRF_Vulnerability_Report.pdf) |
-| **Hardcoded Auth Bypass** | Logic Flaw / Backdoor | 🔴 High | [View Report](./vulnerability-reports/Hardcoded%20Authentication%20Bypass%20...) |
+Welcome to my offensive security repository. This project serves as a centralized hub for my penetration testing artifacts, redacted vulnerability reports, and security research documenting my hands-on experience in offensive security.
 
 ---
 
-## Environments & Methodologies
+## Live Portfolio Website
 
-- **Methodologies:** OWASP Top 10, OSSTMM, Penetration Testing Execution Standard (PTES).
-- **Core Focus:** Web Applications, API Security, Active Directory Environments.
+To explore my selected security findings, technical insights, and mitigations in a fully interactive and structured format, please visit my live portfolio:
+
+<p align="center">
+  <a href="https://MustafaSEC404.github.io" target="_blank" style="font-weight: bold; font-size: 1.2rem;">
+   Click Here to View My Live Security Portfolio
+  </a>
+</p>
 
 ---
 
-## Contact & Links
+## Repository Structure
+
+*   **`reports/`**: Contains formal, redacted PDF reports covering Critical and High-severity findings (Web & Network layers).
+*   **`cv/`**: Houses my latest professional Curriculum Vitae (CV) detailing technical skills and certifications.
+*   **`assets/`**: Static media and profile resources utilized for the portfolio presentation.
+
+---
+
+## Focus Areas
+
+- **Web Application Penetration Testing:** Methodologies mapped against OWASP Top 10 to uncover logic flaws, injection vectors, and broken authorizations.
+- **Infrastructure & Active Directory:** Assessing internal network security, identifying misconfigurations, and validating privilege escalation paths.
+- **Remediation Guidance:** Translating technical vulnerabilities into actionable, business-focused mitigation strategies.
+
+---
+
+## Connect with Me
 
 - **Main Profile:** [@MustafaSEC404](https://github.com/MustafaSEC404)
 - **LinkedIn:** [Mustafa Mohamed](https://www.linkedin.com/in/mustafa-mohamed-0a77a1197/)
+- **Email:** m.bafy10@gmail.com
