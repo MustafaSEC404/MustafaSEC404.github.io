@@ -243,7 +243,7 @@
 <body>
 
 <header>
-    <img src="WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg" alt="Mustafa Mohamed Ibrahim" class="profile">
+    <img src="assets/WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg" alt="Mustafa Mohamed Ibrahim" class="profile">
     <h1>Mustafa Mohamed Ibrahim</h1>
     <div class="title">
         <i class="fa-solid fa-shield-halved"></i> Penetration Tester | Internal, Web & Network Security
@@ -306,7 +306,7 @@
         <p><strong>Technical Insight:</strong> A publicly accessible source code backup archive (<span class="highlight">srp.tar.gz</span>) exposed the backend codebase. Source code review of the authentication logic (<span class="highlight">Auth_model.php</span>) revealed a hardcoded static string backdoor constraint within an explicit logical OR (<span class="highlight">||</span>) operator, bypassing standard password verification functions.</p>
         <p><strong>Impact:</strong> Remote unauthenticated attackers could arbitrarily authenticate into any active administrative or user account, completely bypassing password validation if the target username is known.</p>
         <p><strong>Mitigation:</strong> Immediately eliminate the static hardcoded password condition from the source code, rely strictly on secure password verification functions like <span class="highlight">password_verify()</span>, remove public access to archives, and enforce strict server-level folder permissions.</p>
-        <a href="Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <a href="reports/Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
     </div>    
 
     <div class="card">
@@ -315,7 +315,7 @@
         <p><strong>Business Risk:</strong> Potential full database disclosure and infrastructure enumeration.</p>
         <p><strong>Technical Insight:</strong> Unsanitized GET parameter directly incorporated into backend SQL query (MySQL). Vulnerability persisted after infrastructure-level mitigation.</p>
         <p><strong>Mitigation:</strong> Parameterized queries and strict input validation.</p>
-        <a href="SQL_Injection_Vulnerability_Still_Present_After_Fix.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <a href="reports/SQL_Injection_Vulnerability_Still_Present_After_Fix.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
     </div>
 
     <div class="card">
@@ -325,7 +325,7 @@
         <p><strong>Technical Insight:</strong> Stored XSS vulnerability exists in the “Internal Notes” field where user input is rendered without proper output encoding, allowing execution of arbitrary JavaScript in the browser of any user viewing the affected record.</p>
         <p><strong>Impact:</strong> Although session cookies are protected with HttpOnly, arbitrary script execution enables DOM data exfiltration, UI manipulation, and phishing attacks within the trusted application context.</p>
         <p><strong>Mitigation:</strong> Implement contextual output encoding, input sanitization, and Content Security Policy (CSP).</p>
-        <a href="Stored_XSS_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <a href="reports/Stored_XSS_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
     </div>
     
     <div class="card">
@@ -334,7 +334,7 @@
         <p><strong>Business Risk:</strong> Unauthorized disclosure of guest personal data enabling phishing and regulatory risk.</p>
         <p><strong>Technical Insight:</strong> Missing authentication and object-level authorization allowed reservation enumeration via predictable parameters.</p>
         <p><strong>Mitigation:</strong> Enforce authentication and strict ownership validation.</p>
-        <a href="IDOR Vulnerability Report – Unauthorized Access to Guest Personal Data.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <a href="reports/IDOR Vulnerability Report – Unauthorized Access to Guest Personal Data.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
     </div>
 
     <div class="card">
@@ -343,7 +343,7 @@
         <p><strong>Business Risk:</strong> Silent password change for authenticated admin users.</p>
         <p><strong>Technical Insight:</strong> No CSRF tokens or origin validation enabled external crafted request exploitation.</p>
         <p><strong>Mitigation:</strong> Implement CSRF tokens and SameSite cookie attributes.</p>
-        <a href="CSRF_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <a href="reports/CSRF_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
     </div>
 </div>
 
@@ -353,7 +353,7 @@
         <p style="margin-bottom: 25px; color: var(--text-muted);">
             Download my full professional CV including experience, technical skills, labs, and certifications.
         </p>
-        <a href="Mustafa Mohamed Ibrahim Security.pdf" class="download" target="_blank">
+        <a href="cv/Mustafa Mohamed Ibrahim Security.pdf" class="download" target="_blank">
             <i class="fa-solid fa-cloud-arrow-down"></i> Download CV
         </a>
     </div>
