@@ -252,7 +252,7 @@
     <div class="nav">
         <button class="active" onclick="openTab(event, 'home')">Home</button>
         <button onclick="openTab(event, 'cert')">Certificates</button>
-        <button onclick="openTab(event, 'reports')">Reports</button>
+        <button onclick="openTab(event, 'reports')">Write-ups</button>
         <button onclick="openTab(event, 'cv')">CV</button>
         <button onclick="openTab(event, 'contact')">Contact</button>
     </div>
@@ -261,7 +261,7 @@
 <div id="home" class="tab active">
     <div class="card">
         <h2>Professional Summary</h2>
-        <p>Penetration Tester specializing in internal infrastructure security, web application exploitation, Active Directory attack paths, and network security assessments. Experienced in validating real-world business risks through controlled exploitation and structured reporting.</p>
+        <p>Penetration Tester specializing in internal infrastructure security, web application exploitation, Active Directory attack paths, and network security assessments. Experienced in conducting authorized internal audits, identifying zero-day logical flaws, and assisting development teams in robust remediation delivery.</p>
     </div>
 
     <div class="card">
@@ -270,14 +270,14 @@
             <li><strong>100+</strong> Web Security Labs</li>
             <li><strong>40+</strong> CTF Scenarios (Web & AD)</li>
             <li><strong>3+ Years</strong> Continuous Practice</li>
-            <li>Validated High & Critical Findings</li>
+            <li>Authorized Enterprise Pentesting Engagements</li>
         </ul>
     </div>
 
     <div class="card">
         <h2>Offensive Methodology</h2>
         <p style="font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 0.95rem;">
-            Reconnaissance &rarr; Surface Mapping &rarr; Exploitation &rarr; Privilege Escalation &rarr; Lateral Movement &rarr; Impact Validation &rarr; Structured Reporting
+            Reconnaissance &rarr; Surface Mapping &rarr; Exploitation &rarr; Privilege Escalation &rarr; Lateral Movement &rarr; Impact Validation &rarr; Structured Remediation Support
         </p>
     </div>
 </div>
@@ -297,53 +297,60 @@
 </div>
 
 <div id="reports" class="tab">
-    <h2 style="text-align: center; margin-bottom: 30px;">Selected Security Findings <span style="font-size: 0.8rem; color: var(--text-muted);">(Redacted)</span></h2>
+    <h2 style="text-align: center; margin-bottom: 30px;">Sanitized Write-ups & Technical Breakdowns <span style="font-size: 0.8rem; color: var(--text-muted);">(Fully Redacted to Comply with NDA)</span></h2>
 
     <div class="card">
         <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
         <h3>Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure</h3>
-        <p><strong>Business Risk:</strong> Complete Account Takeover (ATO) and full administrative access, leading to unauthorized data modification, exfiltration of sensitive organizational assets, and personal data leakage.</p>
-        <p><strong>Technical Insight:</strong> A publicly accessible source code backup archive (<span class="highlight">srp.tar.gz</span>) exposed the backend codebase. Source code review of the authentication logic (<span class="highlight">Auth_model.php</span>) revealed a hardcoded static string backdoor constraint within an explicit logical OR (<span class="highlight">||</span>) operator, bypassing standard password verification functions.</p>
-        <p><strong>Impact:</strong> Remote unauthenticated attackers could arbitrarily authenticate into any active administrative or user account, completely bypassing password validation if the target username is known.</p>
-        <p><strong>Mitigation:</strong> Immediately eliminate the static hardcoded password condition from the source code, rely strictly on secure password verification functions like <span class="highlight">password_verify()</span>, remove public access to archives, and enforce strict server-level folder permissions.</p>
-        <a href="reports/Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <p><strong>Business Risk:</strong> Pre-Authentication Account Takeover (ATO) and full administrative control, leading to deep data modification and complete infrastructure compromise.</p>
+        <p><strong>Technical Insight:</strong> Discovered a publicly exposed backup archive framework containing the full backend application source code. White-box analysis revealed a critical logical flaw: a static password backdoor override built into the authentication logic with an explicit OR operator, bypassing native password verification processes.</p>
+        <p><strong>Impact:</strong> Allowed remote unauthenticated actors to authenticate as any valid user on demand without cracking actual credential hashes.</p>
+        <a href="https://medium.com/@m.bafy10/from-source-code-disclosure-to-a-hardcoded-backdoor-how-i-achieved-full-authentication-bypass-20fb3c38b48e" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
     </div>    
 
     <div class="card">
         <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>SQL Injection – Reservation Endpoint</h3>
-        <p><strong>Business Risk:</strong> Potential full database disclosure and infrastructure enumeration.</p>
-        <p><strong>Technical Insight:</strong> Unsanitized GET parameter directly incorporated into backend SQL query (MySQL). Vulnerability persisted after infrastructure-level mitigation.</p>
-        <p><strong>Mitigation:</strong> Parameterized queries and strict input validation.</p>
-        <a href="reports/SQL_Injection_Vulnerability_Still_Present_After_Fix.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <h3>Infrastructure Takeover: Hardcoded MailWizz API Keys Leak</h3>
+        <p><strong>Business Risk:</strong> Severe corporate reputation damage, automated universal domain blacklisting, high-fidelity Business Email Compromise (BEC), and financial billing liability.</p>
+        <p><strong>Technical Insight:</strong> Identified static, hardcoded application API credentials bound to the production transactional email engine infrastructure. Dynamic pivoting proved that unauthenticated external scripts could directly weaponize these keys to route arbitrary volume bursts through the organization's official mail network.</p>
+        <p><strong>Impact:</strong> Enabled unauthenticated external actors to dispatch spoofed, high-trust phishing campaigns with valid cryptographic signatures (SPF, DKIM, DMARC) directly bypassing global spam filters.</p>
+        <a href="https://medium.com/@m.bafy10/infrastructure-takeover-how-leaked-mailwizz-api-keys-allowed-bypass-of-corporate-email-boundaries-7fe43ca6bcd2" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
     </div>
 
     <div class="card">
         <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>Stored Cross-Site Scripting (XSS) – Purchase Request Internal Notes</h3>
-        <p><strong>Business Risk:</strong> Potential session abuse, phishing attacks, and unauthorized access to sensitive procurement data.</p>
-        <p><strong>Technical Insight:</strong> Stored XSS vulnerability exists in the “Internal Notes” field where user input is rendered without proper output encoding, allowing execution of arbitrary JavaScript in the browser of any user viewing the affected record.</p>
-        <p><strong>Impact:</strong> Although session cookies are protected with HttpOnly, arbitrary script execution enables DOM data exfiltration, UI manipulation, and phishing attacks within the trusted application context.</p>
-        <p><strong>Mitigation:</strong> Implement contextual output encoding, input sanitization, and Content Security Policy (CSP).</p>
-        <a href="reports/Stored_XSS_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <h3>SQL Injection Bypass: Failure of Network-Level Defenses</h3>
+        <p><strong>Business Risk:</strong> Full target relational database schema disclosure, data exfiltration, and internal network architecture leakage.</p>
+        <p><strong>Technical Insight:</strong> An error-based SQL Injection flaw within a dynamic country/language parameters vector. The vulnerability persisted despite initial network perimeter modifications (HTTPS enforcement and Load Balancer proxy integration), demonstrating that perimeter controls cannot fix unparameterized database logic queries.</p>
+        <p><strong>Impact:</strong> Allowed total structure mapping, extraction of administrative account hashes, and leakage of internal infrastructure subnet IP maps.</p>
+        <a href="https://medium.com/@m.bafy10/sql-injection-bypass-why-network-level-fixes-fail-to-secure-vulnerable-applications-d3e96ddc5b27" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
+    </div>
+
+    <div class="card">
+        <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
+        <h3>Persistent Code Execution: Breaking Down a Stored XSS via Internal Notes</h3>
+        <p><strong>Business Risk:</strong> Session abuse, client-side workforce phishing, and sensitive DOM-based financial metadata harvesting.</p>
+        <p><strong>Technical Insight:</strong> Identified a persistent script injection flaw within procurement workflow logs. While session cookies implemented strict HttpOnly safeguards, the vulnerability was leveraged to chain advanced exploitation vectors, including DOM data harvesting and in-page UI context masking.</p>
+        <p><strong>Impact:</strong> Enabled silent document harvesting and cleartext credential sniffing within high-privileged administrative viewports.</p>
+        <a href="https://medium.com/@m.bafy10/persistent-code-execution-breaking-down-a-stored-xss-via-internal-procurement-notes-bf282ca159fe" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
     </div>
     
     <div class="card">
         <span class="badge high"><i class="fa-solid fa-triangle-exclamation"></i> HIGH</span>
-        <h3>Unauthenticated IDOR – Guest PII Exposure</h3>
-        <p><strong>Business Risk:</strong> Unauthorized disclosure of guest personal data enabling phishing and regulatory risk.</p>
-        <p><strong>Technical Insight:</strong> Missing authentication and object-level authorization allowed reservation enumeration via predictable parameters.</p>
-        <p><strong>Mitigation:</strong> Enforce authentication and strict ownership validation.</p>
-        <a href="reports/IDOR Vulnerability Report – Unauthorized Access to Guest Personal Data.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <h3>Unauthenticated IDOR – Guest Personal Data Exfiltration</h3>
+        <p><strong>Business Risk:</strong> Mass customer data leakage, high-fidelity spear phishing risk, and data compliance regulatory violations.</p>
+        <p><strong>Technical Insight:</strong> A complete absence of backend authentication routing and object ownership controls allowed unauthenticated actors to cycle room parameters to extract customer profiles transparently.</p>
+        <p><strong>Impact:</strong> Complete access to active customer PII data structures including full names, cleartext email addresses, and phone numbers.</p>
+        <a href="https://medium.com/@m.bafy10/unauthenticated-idor-how-missing-access-control-exposed-sensitive-guest-pii-via-room-parameters-8c7d3962d161" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
     </div>
 
     <div class="card">
         <span class="badge high"><i class="fa-solid fa-triangle-exclamation"></i> HIGH</span>
-        <h3>CSRF – Administrative Account Takeover</h3>
-        <p><strong>Business Risk:</strong> Silent password change for authenticated admin users.</p>
-        <p><strong>Technical Insight:</strong> No CSRF tokens or origin validation enabled external crafted request exploitation.</p>
-        <p><strong>Mitigation:</strong> Implement CSRF tokens and SameSite cookie attributes.</p>
-        <a href="reports/CSRF_Vulnerability_Report.pdf" class="download" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download Report</a>
+        <h3>Administrative Account Takeover via Cross-Site Request Forgery (CSRF)</h3>
+        <p><strong>Business Risk:</strong> Silent account hijacking of highly privileged administrator profiles.</p>
+        <p><strong>Technical Insight:</strong> The administrative password modification endpoint lacked any cryptographic anti-CSRF token nonces or SameSite cookie boundary alignments, trusting automated browser cookie transmission implicitly.</p>
+        <p><strong>Impact:</strong> Allowed external unauthenticated actors to execute silent, cross-origin password updates by tricking authenticated administrators into accessing a crafted external web page.</p>
+        <a href="https://medium.com/@m.bafy10/account-takeover-via-cross-site-request-forgery-csrf-on-admin-password-change-endpoint-8cca657517f2" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
     </div>
 </div>
 
@@ -351,7 +358,7 @@
     <div class="card" style="text-align: center; padding: 50px 20px;">
         <h2>Curriculum Vitae</h2>
         <p style="margin-bottom: 25px; color: var(--text-muted);">
-            Download my full professional CV including experience, technical skills, labs, and certifications.
+            Download my full professional CV including enterprise experience, technical skills, labs, and certifications.
         </p>
         <a href="cv/Mustafa Mohamed Ibrahim Security.pdf" class="download" target="_blank">
             <i class="fa-solid fa-cloud-arrow-down"></i> Download CV
@@ -384,7 +391,7 @@
 </div>
 
 <footer>
-    © 2026 Mustafa Mohamed Ibrahim – Security Portfolio (Redacted Engagements)
+    © 2026 Mustafa Mohamed Ibrahim – Security Portfolio (Authorized & Redacted Engagements)
 </footer>
 
 </body>
