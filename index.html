@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mustafa Mohamed Ibrahim | Penetration Tester</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer</title>
+
+    <meta name="description"
+          content="Mustafa Mohamed Ibrahim - Cybersecurity & Infrastructure Engineer specializing in Web Application Security, Active Directory, Infrastructure Security and Penetration Testing.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+
         :root {
             --bg-color: #0b1120;
             --card-bg: #111827;
+            --card-bg-hover: #151f32;
             --primary-color: #38bdf8;
+            --primary-dark: #0ea5e9;
             --text-main: #e5e7eb;
             --text-muted: #9ca3af;
             --border-color: #1f2937;
+            --critical-bg: #450a0a;
+            --critical-text: #fca5a5;
+            --critical-border: #991b1b;
+            --high-bg: #431407;
+            --high-text: #fdba74;
+            --high-border: #c2410c;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -23,19 +47,42 @@
             font-family: 'Inter', sans-serif;
             background: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        h1, h2, h3, .title, .badge {
+        h1,
+        h2,
+        h3,
+        .title,
+        .badge,
+        .nav button,
+        .code-text {
             font-family: 'Fira Code', monospace;
         }
 
-        /* Profile Section */
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
             text-align: center;
-            padding: 60px 20px 30px;
+            padding: 65px 20px 35px;
             border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(180deg, rgba(17,24,39,1) 0%, rgba(11,17,32,1) 100%);
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(56, 189, 248, 0.08),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(17,24,39,1) 0%,
+                    rgba(11,17,32,1) 100%
+                );
         }
 
         .profile {
@@ -44,45 +91,55 @@
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--primary-color);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.20);
             transition: all 0.4s ease;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .profile:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 35px rgba(56, 189, 248, 0.35);
         }
 
-        h1 { 
-            margin: 0 0 10px; 
+        h1 {
+            margin: 0 0 10px;
             font-size: 2rem;
         }
 
         .title {
             color: var(--primary-color);
             font-weight: 500;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            max-width: 800px;
+            margin: auto;
         }
 
-        /* Navigation */
+        .subtitle {
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
         .nav {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
             margin-top: 30px;
         }
 
         .nav button {
-            background: none;
+            background: transparent;
             border: 1px solid var(--primary-color);
             color: var(--primary-color);
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 6px;
             cursor: pointer;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s ease;
         }
 
@@ -90,60 +147,82 @@
         .nav button:hover {
             background: var(--primary-color);
             color: var(--bg-color);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
         }
 
-        /* Tabs Content */
+        /* =========================
+           TABS
+        ========================= */
+
         .tab {
             display: none;
-            max-width: 900px;
+            max-width: 950px;
             margin: auto;
             padding: 50px 20px;
             animation: fadeIn 0.4s ease-in-out;
         }
 
-        .tab.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .tab.active {
+            display: block;
         }
 
-        /* Cards */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             padding: 30px;
             border-radius: 12px;
             margin-bottom: 25px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             border-color: #374151;
+            background: var(--card-bg-hover);
+            transform: translateY(-2px);
         }
 
         .card h2 {
             margin-top: 0;
             color: var(--primary-color);
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
 
         .card h3 {
             margin-top: 5px;
             margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .card p {
+            color: var(--text-main);
         }
 
         .card ul {
-            list-style-type: none;
+            list-style: none;
             padding-left: 0;
         }
 
         .card ul li {
             margin-bottom: 12px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 22px;
         }
 
         .card ul li::before {
@@ -153,21 +232,65 @@
             color: var(--primary-color);
         }
 
-        /* Badges */
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        .muted {
+            color: var(--text-muted);
+        }
+
+        /* =========================
+           BADGES
+        ========================= */
+
         .badge {
             padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+            border-radius: 5px;
+            font-size: 0.72rem;
             font-weight: bold;
             display: inline-block;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        .critical { background: #7f1d1d; color: #fca5a5; border: 1px solid #991b1b; }
-        .high { background: #991b1b; color: #fecaca; border: 1px solid #b91c1c; }
+        .critical {
+            background: var(--critical-bg);
+            color: var(--critical-text);
+            border: 1px solid var(--critical-border);
+        }
 
-        /* Buttons & Links */
+        .high {
+            background: var(--high-bg);
+            color: var(--high-text);
+            border: 1px solid var(--high-border);
+        }
+
+        /* =========================
+           TAGS
+        ========================= */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            border: 1px solid var(--border-color);
+            background: #0f172a;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
         a.download {
             display: inline-flex;
             align-items: center;
@@ -183,20 +306,55 @@
         }
 
         a.download:hover {
-            background: #0ea5e9;
+            background: var(--primary-dark);
             transform: translateY(-2px);
         }
 
-        .highlight { color: var(--primary-color); }
+        a.secondary {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
 
-        /* Contact Section */
+        a.secondary:hover {
+            background: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        /* =========================
+           SKILL GRID
+        ========================= */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .skill-box h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1rem;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            font-size: 1.1rem;
+            gap: 16px;
+            font-size: 1.05rem;
         }
-        
+
         .contact-list a {
             color: var(--text-main);
             text-decoration: none;
@@ -209,189 +367,1041 @@
 
         .contact-list i {
             color: var(--primary-color);
-            width: 25px;
+            width: 28px;
         }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             text-align: center;
             padding: 30px;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .title {
+                font-size: 0.85rem;
+            }
+
+            .profile {
+                width: 135px;
+                height: 135px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                gap: 8px;
+            }
+
+            .nav button {
+                padding: 7px 12px;
+                font-size: 0.75rem;
+            }
+        }
+
     </style>
 
     <script>
-        function openTab(event, tabName) {
-            let tabs = document.getElementsByClassName("tab");
-            let buttons = document.querySelectorAll(".nav button");
 
-            for(let tab of tabs){
+        function openTab(event, tabName) {
+
+            const tabs = document.getElementsByClassName("tab");
+            const buttons = document.querySelectorAll(".nav button");
+
+            for (const tab of tabs) {
                 tab.classList.remove("active");
             }
 
-            for(let btn of buttons){
-                btn.classList.remove("active");
+            for (const button of buttons) {
+                button.classList.remove("active");
             }
 
             document.getElementById(tabName).classList.add("active");
             event.currentTarget.classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         }
+
     </script>
+
 </head>
 
 <body>
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-    <img src="assets/WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg" alt="Mustafa Mohamed Ibrahim" class="profile">
+
+    <img
+        src="assets/WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg"
+        alt="Mustafa Mohamed Ibrahim"
+        class="profile"
+    >
+
     <h1>Mustafa Mohamed Ibrahim</h1>
+
     <div class="title">
-        <i class="fa-solid fa-shield-halved"></i> Penetration Tester | Internal, Web & Network Security
+        <i class="fa-solid fa-shield-halved"></i>
+        Cybersecurity & Infrastructure Engineer
+    </div>
+
+    <div class="subtitle">
+        Web Application Security | Active Directory | Infrastructure Security | Penetration Testing
     </div>
 
     <div class="nav">
-        <button class="active" onclick="openTab(event, 'home')">Home</button>
-        <button onclick="openTab(event, 'cert')">Certificates</button>
-        <button onclick="openTab(event, 'reports')">Write-ups</button>
-        <button onclick="openTab(event, 'cv')">CV</button>
-        <button onclick="openTab(event, 'contact')">Contact</button>
+
+        <button class="active" onclick="openTab(event, 'home')">
+            Home
+        </button>
+
+        <button onclick="openTab(event, 'training')">
+            Training
+        </button>
+
+        <button onclick="openTab(event, 'reports')">
+            Write-ups
+        </button>
+
+        <button onclick="openTab(event, 'cv')">
+            CV
+        </button>
+
+        <button onclick="openTab(event, 'contact')">
+            Contact
+        </button>
+
     </div>
+
 </header>
 
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
 <div id="home" class="tab active">
+
     <div class="card">
+
         <h2>Professional Summary</h2>
-        <p>Penetration Tester specializing in internal infrastructure security, web application exploitation, Active Directory attack paths, and network security assessments. Experienced in conducting authorized internal audits, identifying zero-day logical flaws, and assisting development teams in robust remediation delivery.</p>
-    </div>
 
-    <div class="card">
-        <h2>Core Metrics</h2>
-        <ul>
-            <li><strong>100+</strong> Web Security Labs</li>
-            <li><strong>40+</strong> CTF Scenarios (Web & AD)</li>
-            <li><strong>3+ Years</strong> Continuous Practice</li>
-            <li>Authorized Enterprise Pentesting Engagements</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Offensive Methodology</h2>
-        <p style="font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 0.95rem;">
-            Reconnaissance &rarr; Surface Mapping &rarr; Exploitation &rarr; Privilege Escalation &rarr; Lateral Movement &rarr; Impact Validation &rarr; Structured Remediation Support
+        <p>
+            Cybersecurity & Infrastructure Engineer with hands-on experience
+            in enterprise infrastructure administration, web application security,
+            and Active Directory security.
         </p>
+
+        <p>
+            Combines practical infrastructure experience across
+            <span class="highlight">Windows Server, VMware, Cisco networking,
+            and FortiGate</span> with authorized penetration testing and
+            vulnerability assessment.
+        </p>
+
+        <p>
+            Focused on identifying application and infrastructure security
+            weaknesses, validating security impact, and supporting effective
+            remediation.
+        </p>
+
     </div>
+
+
+    <div class="card">
+
+        <h2>Technical Focus</h2>
+
+        <div class="skill-grid">
+
+            <div class="skill-box">
+
+                <h3>
+                    <i class="fa-solid fa-globe"></i>
+                    Web Application Security
+                </h3>
+
+                <p class="muted">
+                    OWASP methodologies, authentication, access control,
+                    injection vulnerabilities, business logic and vulnerability
+                    validation.
+                </p>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    <i class="fa-solid fa-network-wired"></i>
+                    Active Directory Security
+                </h3>
+
+                <p class="muted">
+                    Enumeration, Kerberoasting, privilege escalation,
+                    delegation misconfigurations and lateral movement assessment.
+                </p>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    <i class="fa-solid fa-server"></i>
+                    Infrastructure Security
+                </h3>
+
+                <p class="muted">
+                    Windows Server, VMware ESXi/vCenter, Cisco enterprise
+                    networking, FortiGate and infrastructure security assessments.
+                </p>
+
+            </div>
+
+
+            <div class="skill-box">
+
+                <h3>
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    Security Research
+                </h3>
+
+                <p class="muted">
+                    Vulnerability discovery, impact validation, security
+                    reporting, technical research and sanitized write-ups.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Offensive Methodology</h2>
+
+        <p
+            class="code-text"
+            style="
+                color: var(--text-muted);
+                font-size: 0.95rem;
+                line-height: 2;
+            "
+        >
+            Reconnaissance
+            &rarr;
+            Surface Mapping
+            &rarr;
+            Vulnerability Discovery
+            &rarr;
+            Validation
+            &rarr;
+            Impact Assessment
+            &rarr;
+            Reporting
+            &rarr;
+            Remediation Support
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Security Research</h2>
+
+        <p>
+            Selected technical research is documented through sanitized
+            Medium write-ups. Sensitive target details and identifiers are
+            redacted where required by confidentiality obligations.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">SQL Injection</span>
+            <span class="tag">Authentication Bypass</span>
+            <span class="tag">IDOR</span>
+            <span class="tag">Stored XSS</span>
+            <span class="tag">CSRF</span>
+            <span class="tag">Business Logic</span>
+            <span class="tag">Hardcoded Secrets</span>
+            <span class="tag">API Security</span>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div id="cert" class="tab">
+
+<!-- =====================================================
+     TRAINING
+===================================================== -->
+
+<div id="training" class="tab">
+
     <div class="card">
-        <h2>Certifications & Training</h2>
+
+        <h2>Security Training & Self-Study</h2>
+
+        <p class="muted">
+            The following programs represent structured self-study,
+            practical training, and hands-on application. They are not
+            represented as awarded certifications.
+        </p>
+
         <ul>
-            <li>OSCP / OSCP+ Techniques</li>
-            <li>eWPT & eWPTX – Web Application Penetration Testing</li>
-            <li>CRTP – Active Directory Exploitation</li>
-            <li>eJPT – Junior Penetration Tester</li>
-            <li>CEH (Certified Ethical Hacker)</li>
-            <li>Python for Offensive Security Automation</li>
+
+            <li>
+                <strong>OSCP</strong> —
+                Offensive Security Certified Professional curriculum;
+                self-study and practical penetration testing training.
+            </li>
+
+            <li>
+                <strong>CRTP</strong> —
+                Active Directory security, enumeration, privilege escalation
+                and red team methodology training.
+            </li>
+
+            <li>
+                <strong>eWPTX</strong> —
+                Advanced web application security and penetration testing training.
+            </li>
+
+            <li>
+                <strong>eWPT</strong> —
+                Web application penetration testing and OWASP methodology training.
+            </li>
+
+            <li>
+                <strong>eJPT</strong> —
+                Practical penetration testing and security assessment fundamentals.
+            </li>
+
+            <li>
+                <strong>CEH</strong> —
+                Ethical hacking and security assessment methodology training.
+            </li>
+
         </ul>
+
     </div>
+
+
+    <div class="card">
+
+        <h2>IT Training</h2>
+
+        <ul>
+
+            <li>
+                <strong>Information Technology Institute (ITI)</strong>
+                — System Administration Training
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Practical Focus</h2>
+
+        <p>
+            Training has been reinforced through hands-on labs, security
+            research, penetration testing exercises, infrastructure work,
+            and technical write-ups.
+        </p>
+
+    </div>
+
 </div>
+
+
+<!-- =====================================================
+     WRITE-UPS
+===================================================== -->
 
 <div id="reports" class="tab">
-    <h2 style="text-align: center; margin-bottom: 30px;">Sanitized Write-ups & Technical Breakdowns <span style="font-size: 0.8rem; color: var(--text-muted);">(Fully Redacted to Comply with NDA)</span></h2>
+
+    <h2 style="text-align:center; margin-bottom:10px;">
+        Security Research & Sanitized Write-ups
+    </h2>
+
+    <p
+        style="
+            text-align:center;
+            color:var(--text-muted);
+            margin-bottom:35px;
+        "
+    >
+        Selected authorized security research and technical breakdowns.
+        Sensitive target details are redacted where required by confidentiality agreements.
+    </p>
+
+
+    <!-- =================================================
+         SOURCE CODE BACKDOOR
+    ================================================== -->
 
     <div class="card">
-        <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>Hardcoded Authentication Bypass (Backdoor) via Source Code Disclosure</h3>
-        <p><strong>Business Risk:</strong> Pre-Authentication Account Takeover (ATO) and full administrative control, leading to deep data modification and complete infrastructure compromise.</p>
-        <p><strong>Technical Insight:</strong> Discovered a publicly exposed backup archive framework containing the full backend application source code. White-box analysis revealed a critical logical flaw: a static password backdoor override built into the authentication logic with an explicit OR operator, bypassing native password verification processes.</p>
-        <p><strong>Impact:</strong> Allowed remote unauthenticated actors to authenticate as any valid user on demand without cracking actual credential hashes.</p>
-        <a href="https://medium.com/@m.bafy10/from-source-code-disclosure-to-a-hardcoded-backdoor-how-i-achieved-full-authentication-bypass-20fb3c38b48e" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
-    </div>    
 
-    <div class="card">
-        <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>Infrastructure Takeover: Hardcoded MailWizz API Keys Leak</h3>
-        <p><strong>Business Risk:</strong> Severe corporate reputation damage, automated universal domain blacklisting, high-fidelity Business Email Compromise (BEC), and financial billing liability.</p>
-        <p><strong>Technical Insight:</strong> Identified static, hardcoded application API credentials bound to the production transactional email engine infrastructure. Dynamic pivoting proved that unauthenticated external scripts could directly weaponize these keys to route arbitrary volume bursts through the organization's official mail network.</p>
-        <p><strong>Impact:</strong> Enabled unauthenticated external actors to dispatch spoofed, high-trust phishing campaigns with valid cryptographic signatures (SPF, DKIM, DMARC) directly bypassing global spam filters.</p>
-        <a href="https://medium.com/@m.bafy10/infrastructure-takeover-how-leaked-mailwizz-api-keys-allowed-bypass-of-corporate-email-boundaries-7fe43ca6bcd2" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
+        <span class="badge critical">
+            <i class="fa-solid fa-bug"></i>
+            CRITICAL
+        </span>
+
+        <h3>
+            From Source Code Disclosure to Hardcoded Authentication Backdoor
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Unauthorized authentication and potential account compromise
+            resulting from exposed application source code and insecure
+            authentication logic.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Discovered exposed application source code and identified a
+            hardcoded authentication condition within the authentication
+            workflow.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated authentication bypass against affected application
+            accounts without relying on legitimate credentials.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">Source Code Disclosure</span>
+            <span class="tag">Authentication</span>
+            <span class="tag">Hardcoded Secret</span>
+            <span class="tag">Access Control</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/from-source-code-disclosure-to-a-hardcoded-backdoor-how-i-achieved-full-authentication-bypass-20fb3c38b48e"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
     </div>
 
-    <div class="card">
-        <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>SQL Injection Bypass: Failure of Network-Level Defenses</h3>
-        <p><strong>Business Risk:</strong> Full target relational database schema disclosure, data exfiltration, and internal network architecture leakage.</p>
-        <p><strong>Technical Insight:</strong> An error-based SQL Injection flaw within a dynamic country/language parameters vector. The vulnerability persisted despite initial network perimeter modifications (HTTPS enforcement and Load Balancer proxy integration), demonstrating that perimeter controls cannot fix unparameterized database logic queries.</p>
-        <p><strong>Impact:</strong> Allowed total structure mapping, extraction of administrative account hashes, and leakage of internal infrastructure subnet IP maps.</p>
-        <a href="https://medium.com/@m.bafy10/sql-injection-bypass-why-network-level-fixes-fail-to-secure-vulnerable-applications-d3e96ddc5b27" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
-    </div>
+ <!-- =================================================
+         SQL AUTH BYPASS
+    ================================================== -->
 
     <div class="card">
-        <span class="badge critical"><i class="fa-solid fa-bug"></i> CRITICAL</span>
-        <h3>Persistent Code Execution: Breaking Down a Stored XSS via Internal Notes</h3>
-        <p><strong>Business Risk:</strong> Session abuse, client-side workforce phishing, and sensitive DOM-based financial metadata harvesting.</p>
-        <p><strong>Technical Insight:</strong> Identified a persistent script injection flaw within procurement workflow logs. While session cookies implemented strict HttpOnly safeguards, the vulnerability was leveraged to chain advanced exploitation vectors, including DOM data harvesting and in-page UI context masking.</p>
-        <p><strong>Impact:</strong> Enabled silent document harvesting and cleartext credential sniffing within high-privileged administrative viewports.</p>
-        <a href="https://medium.com/@m.bafy10/persistent-code-execution-breaking-down-a-stored-xss-via-internal-procurement-notes-bf282ca159fe" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
+
+        <span class="badge critical">
+            <i class="fa-solid fa-bug"></i>
+            CRITICAL
+        </span>
+
+        <h3>
+            SQL Injection Authentication Bypass on Login Portal
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Authentication bypass resulting in unauthorized access to a
+            privileged application session.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified SQL Injection in the authentication workflow that
+            allowed manipulation of backend query logic and bypass of
+            password validation.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Successful authentication without valid credentials,
+            resulting in unauthorized access to the application.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">SQL Injection</span>
+            <span class="tag">Authentication Bypass</span>
+            <span class="tag">CWE-89</span>
+            <span class="tag">Web Security</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/bypassing-authentication-gates-sql-injection-auth-bypass-on-login-portal-8856ed2efde4"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
     </div>
+
     
-    <div class="card">
-        <span class="badge high"><i class="fa-solid fa-triangle-exclamation"></i> HIGH</span>
-        <h3>Unauthenticated IDOR – Guest Personal Data Exfiltration</h3>
-        <p><strong>Business Risk:</strong> Mass customer data leakage, high-fidelity spear phishing risk, and data compliance regulatory violations.</p>
-        <p><strong>Technical Insight:</strong> A complete absence of backend authentication routing and object ownership controls allowed unauthenticated actors to cycle room parameters to extract customer profiles transparently.</p>
-        <p><strong>Impact:</strong> Complete access to active customer PII data structures including full names, cleartext email addresses, and phone numbers.</p>
-        <a href="https://medium.com/@m.bafy10/unauthenticated-idor-how-missing-access-control-exposed-sensitive-guest-pii-via-room-parameters-8c7d3962d161" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
-    </div>
+    <!-- =================================================
+         MAILWIZZ
+    ================================================== -->
 
     <div class="card">
-        <span class="badge high"><i class="fa-solid fa-triangle-exclamation"></i> HIGH</span>
-        <h3>Administrative Account Takeover via Cross-Site Request Forgery (CSRF)</h3>
-        <p><strong>Business Risk:</strong> Silent account hijacking of highly privileged administrator profiles.</p>
-        <p><strong>Technical Insight:</strong> The administrative password modification endpoint lacked any cryptographic anti-CSRF token nonces or SameSite cookie boundary alignments, trusting automated browser cookie transmission implicitly.</p>
-        <p><strong>Impact:</strong> Allowed external unauthenticated actors to execute silent, cross-origin password updates by tricking authenticated administrators into accessing a crafted external web page.</p>
-        <a href="https://medium.com/@m.bafy10/account-takeover-via-cross-site-request-forgery-csrf-on-admin-password-change-endpoint-8cca657517f2" class="download" target="_blank"><i class="fa-brands fa-medium"></i> Read Full Write-up</a>
+
+        <span class="badge critical">
+            <i class="fa-solid fa-bug"></i>
+            CRITICAL
+        </span>
+
+        <h3>
+            Infrastructure Takeover: Leaked MailWizz API Keys
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Unauthorized access to transactional email infrastructure
+            with potential for email abuse, reputational damage,
+            and operational impact.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified exposed application API credentials associated
+            with transactional email infrastructure and validated their
+            security impact.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated unauthorized use of exposed credentials against
+            the affected email infrastructure.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">API Security</span>
+            <span class="tag">Hardcoded Credentials</span>
+            <span class="tag">Infrastructure</span>
+            <span class="tag">Secrets Exposure</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/infrastructure-takeover-how-leaked-mailwizz-api-keys-allowed-bypass-of-corporate-email-boundaries-7fe43ca6bcd2"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
     </div>
+
+
+    <!-- =================================================
+         SQLI NETWORK DEFENSE
+    ================================================== -->
+
+    <div class="card">
+
+        <span class="badge critical">
+            <i class="fa-solid fa-bug"></i>
+            CRITICAL
+        </span>
+
+        <h3>
+            SQL Injection Bypass: Failure of Network-Level Defenses
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Database structure disclosure and potential exposure of
+            sensitive application and infrastructure information.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified an SQL Injection vulnerability in a dynamic
+            application parameter and demonstrated that perimeter
+            security changes could not replace secure application-layer
+            query handling.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated database structure enumeration and exposure
+            of sensitive application data.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">SQL Injection</span>
+            <span class="tag">Database Security</span>
+            <span class="tag">Application Security</span>
+            <span class="tag">Defense in Depth</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/sql-injection-bypass-why-network-level-fixes-fail-to-secure-vulnerable-applications-d3e96ddc5b27"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         STORED XSS
+    ================================================== -->
+
+    <div class="card">
+
+        <span class="badge high">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            HIGH
+        </span>
+
+        <h3>
+            Stored XSS in Internal Procurement Workflow
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Potential abuse of privileged browser sessions and exposure
+            of information accessible within affected application contexts.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified a persistent cross-site scripting vulnerability
+            within an internal procurement workflow where attacker-controlled
+            content was rendered in privileged user contexts.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated script execution in the affected application
+            context and the ability to interact with information available
+            to the affected browser session.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">Stored XSS</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">DOM</span>
+            <span class="tag">Web Security</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/persistent-code-execution-breaking-down-a-stored-xss-via-internal-procurement-notes-bf282ca159fe"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         IDOR
+    ================================================== -->
+
+    <div class="card">
+
+        <span class="badge high">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            HIGH
+        </span>
+
+        <h3>
+            Unauthenticated IDOR — Guest Personal Data Exposure
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Unauthorized disclosure of sensitive guest information
+            and potential privacy and compliance impact.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified missing server-side authorization controls that
+            allowed unauthorized access to guest records through
+            manipulated object references.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated unauthorized access to sensitive guest
+            information including personally identifiable data.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">IDOR</span>
+            <span class="tag">BOLA</span>
+            <span class="tag">Access Control</span>
+            <span class="tag">PII Exposure</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/unauthenticated-idor-how-missing-access-control-exposed-sensitive-guest-pii-via-room-parameters-8c7d3962d161"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         CSRF
+    ================================================== -->
+
+    <div class="card">
+
+        <span class="badge high">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            HIGH
+        </span>
+
+        <h3>
+            Administrative Account Takeover via CSRF
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Unauthorized modification of privileged account credentials
+            through a cross-origin request.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified an administrative password-change endpoint that
+            lacked effective CSRF protection and relied on authenticated
+            browser state.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            Demonstrated that an attacker-controlled origin could trigger
+            an unauthorized password modification when the affected
+            authenticated administrator interacted with attacker-controlled
+            content.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">CSRF</span>
+            <span class="tag">Account Takeover</span>
+            <span class="tag">Authentication</span>
+            <span class="tag">Web Security</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/account-takeover-via-cross-site-request-forgery-csrf-on-admin-password-change-endpoint-8cca657517f2"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         PRICE MANIPULATION
+    ================================================== -->
+
+    <div class="card">
+
+        <span class="badge high">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            HIGH
+        </span>
+
+        <h3>
+            Price Manipulation in E-Commerce Checkout
+        </h3>
+
+        <p>
+            <strong>Business Risk:</strong>
+            Unauthorized reduction of order value and potential financial
+            loss caused by manipulation of client-controlled monetary values.
+        </p>
+
+        <p>
+            <strong>Technical Insight:</strong>
+            Identified insufficient server-side validation of a
+            client-controlled product price during checkout. The application
+            continued using the manipulated value instead of enforcing the
+            authoritative server-side product price.
+        </p>
+
+        <p>
+            <strong>Impact:</strong>
+            A product listed at
+            <strong>EGP 1,185</strong>
+            was processed using a manipulated value of
+            <strong>EGP 185</strong>.
+            With EGP 80 shipping, the resulting checkout total and generated
+            invoice showed <strong>EGP 265</strong>.
+        </p>
+
+        <p class="muted">
+            <strong>Evidence note:</strong>
+            The demonstrated invoice was unpaid. No successful fraudulent
+            financial transaction was completed during testing.
+        </p>
+
+        <div class="tags">
+
+            <span class="tag">Business Logic</span>
+            <span class="tag">Price Manipulation</span>
+            <span class="tag">E-Commerce</span>
+            <span class="tag">Payment Logic</span>
+
+        </div>
+
+        <a
+            href="https://medium.com/@m.bafy10/from-egp-1-185-to-egp-265-exploiting-a-price-manipulation-flaw-in-an-e-commerce-checkout-9bc875fca88b"
+            class="download"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <i class="fa-brands fa-medium"></i>
+            Read Full Write-up
+        </a>
+
+    </div>
+
 </div>
+
+
+<!-- =====================================================
+     CV
+===================================================== -->
 
 <div id="cv" class="tab">
-    <div class="card" style="text-align: center; padding: 50px 20px;">
-        <h2>Curriculum Vitae</h2>
-        <p style="margin-bottom: 25px; color: var(--text-muted);">
-            Download my full professional CV including enterprise experience, technical skills, labs, and certifications.
+
+    <div
+        class="card"
+        style="
+            text-align:center;
+            padding:50px 20px;
+        "
+    >
+
+        <h2>
+            Curriculum Vitae
+        </h2>
+
+        <p
+            style="
+                margin-bottom:25px;
+                color:var(--text-muted);
+            "
+        >
+            Download my professional CV covering enterprise infrastructure,
+            cybersecurity experience, technical skills, security research,
+            and professional development.
         </p>
-        <a href="cv/Mustafa Mohamed Ibrahim Mohamed.pdf" class="download" target="_blank">
-            <i class="fa-solid fa-cloud-arrow-down"></i> Download CV
+
+        <a
+            href="cv/Mustafa Mohamed Ibrahim Mohamed.pdf"
+            class="download"
+            target="_blank"
+        >
+            <i class="fa-solid fa-file-pdf"></i>
+            View / Download CV
         </a>
+
     </div>
-</div>
-    
-<div id="contact" class="tab">
-    <div class="card">
-        <h2>Get In Touch</h2>
-        <div class="contact-list">
-            <div>
-                <i class="fa-solid fa-envelope"></i> 
-                <a href="mailto:m.bafy10@gmail.com">m.bafy10@gmail.com</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-phone"></i> 
-                <a href="tel:01002919962">01002919962</a>
-            </div>
-            <div>
-                <i class="fa-brands fa-linkedin"></i> 
-                <a href="https://linkedin.com/in/mustafa-mohamed-0a77a1197" target="_blank">LinkedIn Profile</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-location-dot"></i> 
-                <span>Qina, Egypt</span>
-            </div>
-        </div>
-    </div>
+
 </div>
 
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<div id="contact" class="tab">
+
+    <div class="card">
+
+        <h2>Get In Touch</h2>
+
+        <div class="contact-list">
+
+            <div>
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <a href="mailto:m.bafy10@gmail.com">
+                    m.bafy10@gmail.com
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-phone"></i>
+
+                <a href="tel:+201002919962">
+                    +20 100 291 9962
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                <a
+                    href="https://linkedin.com/in/mustafa-mohamed-0a77a1197"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn Profile
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-brands fa-github"></i>
+
+                <a
+                    href="https://github.com/MustafaSEC404"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-brands fa-medium"></i>
+
+                <a
+                    href="https://medium.com/@m.bafy10"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Medium Security Research
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-globe"></i>
+
+                <a
+                    href="https://mustafasec404.github.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Portfolio
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span>
+                    Giza, Egypt
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
-    © 2026 Mustafa Mohamed Ibrahim – Security Portfolio (Authorized & Redacted Engagements)
+
+    © 2026 Mustafa Mohamed Ibrahim
+    —
+    Cybersecurity & Infrastructure Engineer
+    —
+    Authorized & Sanitized Security Research
+
 </footer>
 
 </body>
