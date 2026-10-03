@@ -1,1408 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer</title>
-
-    <meta name="description"
-          content="Mustafa Mohamed Ibrahim - Cybersecurity & Infrastructure Engineer specializing in Web Application Security, Active Directory, Infrastructure Security and Penetration Testing.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-
-        :root {
-            --bg-color: #0b1120;
-            --card-bg: #111827;
-            --card-bg-hover: #151f32;
-            --primary-color: #38bdf8;
-            --primary-dark: #0ea5e9;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
-            --critical-bg: #450a0a;
-            --critical-text: #fca5a5;
-            --critical-border: #991b1b;
-            --high-bg: #431407;
-            --high-text: #fdba74;
-            --high-border: #c2410c;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.7;
-        }
-
-        h1,
-        h2,
-        h3,
-        .title,
-        .badge,
-        .nav button,
-        .code-text {
-            font-family: 'Fira Code', monospace;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            text-align: center;
-            padding: 65px 20px 35px;
-            border-bottom: 1px solid var(--border-color);
-            background:
-                radial-gradient(
-                    circle at top,
-                    rgba(56, 189, 248, 0.08),
-                    transparent 40%
-                ),
-                linear-gradient(
-                    180deg,
-                    rgba(17,24,39,1) 0%,
-                    rgba(11,17,32,1) 100%
-                );
-        }
-
-        .profile {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.20);
-            transition: all 0.4s ease;
-            margin-bottom: 18px;
-        }
-
-        .profile:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 35px rgba(56, 189, 248, 0.35);
-        }
-
-        h1 {
-            margin: 0 0 10px;
-            font-size: 2rem;
-        }
-
-        .title {
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 1rem;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        .nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .nav button {
-            background: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav button.active,
-        .nav button:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
-        }
-
-        /* =========================
-           TABS
-        ========================= */
-
-        .tab {
-            display: none;
-            max-width: 950px;
-            margin: auto;
-            padding: 50px 20px;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        .tab.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================
-           CARDS
-        ========================= */
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #374151;
-            background: var(--card-bg-hover);
-            transform: translateY(-2px);
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: var(--primary-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 12px;
-        }
-
-        .card h3 {
-            margin-top: 5px;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .card p {
-            color: var(--text-main);
-        }
-
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .card ul li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 22px;
-        }
-
-        .card ul li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-
-        .highlight {
-            color: var(--primary-color);
-        }
-
-        .muted {
-            color: var(--text-muted);
-        }
-
-        /* =========================
-           BADGES
-        ========================= */
-
-        .badge {
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-size: 0.72rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .critical {
-            background: var(--critical-bg);
-            color: var(--critical-text);
-            border: 1px solid var(--critical-border);
-        }
-
-        .high {
-            background: var(--high-bg);
-            color: var(--high-text);
-            border: 1px solid var(--high-border);
-        }
-
-        /* =========================
-           TAGS
-        ========================= */
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            border: 1px solid var(--border-color);
-            background: #0f172a;
-            color: var(--text-muted);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.75rem;
-        }
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
-        a.download {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: var(--primary-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        a.download:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        a.secondary {
-            background: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        a.secondary:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-        }
-
-        /* =========================
-           SKILL GRID
-        ========================= */
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .skill-box {
-            background: #0f172a;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .skill-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            font-size: 1rem;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            font-size: 1.05rem;
-        }
-
-        .contact-list a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-list a:hover {
-            color: var(--primary-color);
-        }
-
-        .contact-list i {
-            color: var(--primary-color);
-            width: 28px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            .title {
-                font-size: 0.85rem;
-            }
-
-            .profile {
-                width: 135px;
-                height: 135px;
-            }
-
-            .card {
-                padding: 22px;
-            }
-
-            .skill-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav {
-                gap: 8px;
-            }
-
-            .nav button {
-                padding: 7px 12px;
-                font-size: 0.75rem;
-            }
-        }
-
-    </style>
-
-    <script>
-
-        function openTab(event, tabName) {
-
-            const tabs = document.getElementsByClassName("tab");
-            const buttons = document.querySelectorAll(".nav button");
-
-            for (const tab of tabs) {
-                tab.classList.remove("active");
-            }
-
-            for (const button of buttons) {
-                button.classList.remove("active");
-            }
-
-            document.getElementById(tabName).classList.add("active");
-            event.currentTarget.classList.add("active");
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-    </script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer</title>
+<meta name="description" content="Mustafa Mohamed Ibrahim - Cybersecurity & Infrastructure Engineer specializing in Web Application Security, Active Directory, Infrastructure Security and Penetration Testing.">
+<meta name="theme-color" content="#050a14">
+<link rel="canonical" href="https://mustafasec404.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer">
+<meta property="og:description" content="Web application security, Active Directory, infrastructure security and penetration testing. Sanitized write-ups of authorized research.">
+<meta property="og:url" content="https://mustafasec404.github.io/">
+<meta property="og:image" content="https://mustafasec404.github.io/assets/WhatsApp%20Image%202025-11-18%20at%203.02.08%20PM.jpeg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer">
+<meta name="twitter:description" content="Web application security, Active Directory, infrastructure security and penetration testing.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Mustafa Mohamed Ibrahim","jobTitle":"Cybersecurity & Infrastructure Engineer","url":"https://mustafasec404.github.io/","email":"mailto:m.bafy10@gmail.com","telephone":"+201002919962","address":{"@type":"PostalAddress","addressLocality":"Giza","addressCountry":"EG"},"knowsAbout":["Web Application Security","Active Directory Security","Infrastructure Security","Penetration Testing","Windows Server","VMware","Cisco","FortiGate"],"sameAs":["https://github.com/MustafaSEC404","https://medium.com/@m.bafy10","https://linkedin.com/in/mustafa-mohamed-0a77a1197"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  --bg:#050a14;--glass:rgba(17,26,44,.62);--glass-hi:rgba(24,36,60,.78);
+  --line:rgba(120,170,230,.16);--line-hi:rgba(56,189,248,.45);
+  --cyan:#38bdf8;--cyan-d:#0ea5e9;--text:#e5e9f0;--muted:#8d9bb3;
+  --crit:#f87171;--crit-bg:rgba(127,29,29,.35);--high:#fb923c;--high-bg:rgba(124,45,18,.35);
+  --mono:'Fira Code',ui-monospace,monospace;--sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+h1,h2,h3{font-family:var(--mono);margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.sr{position:absolute;left:-9999px}
+.skip:focus{left:10px;top:10px;z-index:99;background:var(--cyan);color:var(--bg);padding:8px 14px;border-radius:6px}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.28;pointer-events:none}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% -10%,rgba(56,189,248,.14),transparent 55%),
+  linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px) 0 0/44px 44px,
+  linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px) 0 0/44px 44px}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--cyan);box-shadow:0 0 10px var(--cyan);z-index:60}
+.wrap{position:relative;z-index:1}
+
+/* header + nav */
+header{text-align:center;padding:56px 20px 24px}
+.profile{width:148px;height:148px;object-fit:cover;border-radius:50%;border:2px solid var(--cyan);
+  box-shadow:0 0 0 6px rgba(56,189,248,.08),0 0 34px rgba(56,189,248,.28);margin-bottom:18px;transition:transform .4s,box-shadow .4s}
+.profile:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 0 8px rgba(56,189,248,.12),0 12px 40px rgba(56,189,248,.4)}
+h1{font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.02em}
+.role{color:var(--cyan);font-family:var(--mono);margin-top:6px}
+.sub{color:var(--muted);font-size:.92rem;margin-top:8px}
+.term{display:inline-block;margin-top:20px;text-align:left;font-family:var(--mono);font-size:.85rem;
+  background:rgba(2,6,14,.7);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:min(420px,92vw)}
+.term .p{color:#4ade80}.term .c{color:var(--cyan)}
+.cur{display:inline-block;width:8px;height:1em;background:var(--cyan);vertical-align:-2px;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center;flex-wrap:wrap;gap:8px;padding:12px;
+  background:rgba(5,10,20,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav a{font-family:var(--mono);font-size:.82rem;text-decoration:none;color:var(--cyan);border:1px solid var(--line-hi);
+  padding:7px 16px;border-radius:7px;transition:.25s;display:inline-flex;gap:8px;align-items:center}
+nav a:hover,nav a[aria-current=page]{background:var(--cyan);color:var(--bg);box-shadow:0 0 16px rgba(56,189,248,.35);transform:translateY(-1px)}
+
+/* panels */
+main{max-width:980px;margin:auto;padding:36px 20px 60px}
+.tab{display:none}.tab.active{display:block;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.card{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);
+  border-radius:14px;padding:28px;margin-bottom:22px;transition:border-color .3s,box-shadow .3s,background .3s}
+.card:hover{border-color:var(--line-hi);background:var(--glass-hi);box-shadow:0 0 28px rgba(56,189,248,.08)}
+.card h2{color:var(--cyan);font-size:1.15rem;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.hl{color:var(--cyan)}.muted{color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.skill{background:rgba(2,6,14,.5);border:1px solid var(--line);border-radius:10px;padding:18px;transition:.25s}
+.skill:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.skill h3{font-size:.95rem;color:var(--cyan);margin-bottom:8px}
+.skill p{margin:0;font-size:.9rem}
+.flow{display:flex;flex-wrap:wrap;gap:6px 0;align-items:center;font-family:var(--mono);font-size:.85rem}
+.flow span{border:1px solid var(--line);border-radius:6px;padding:4px 10px;background:rgba(2,6,14,.5)}
+.flow i{color:var(--cyan);margin:0 8px;font-style:normal}
+.list{list-style:none;padding:0;margin:0}
+.list li{position:relative;padding-left:22px;margin-bottom:12px}
+.list li::before{content:"▹";position:absolute;left:0;color:var(--cyan)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{border:1px solid var(--line);background:rgba(2,6,14,.55);color:var(--muted);padding:4px 10px;border-radius:6px;font:.74rem var(--mono)}
+
+/* write-ups */
+.tools{position:sticky;top:62px;z-index:20;margin-bottom:20px}
+.search{position:relative}
+.search input{width:100%;background:rgba(2,6,14,.75);border:1px solid var(--line);color:var(--text);
+  padding:12px 80px 12px 42px;border-radius:10px;font:.9rem var(--mono)}
+.search input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(56,189,248,.15)}
+.search i{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--cyan)}
+.search kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:.7rem var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 7px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{background:rgba(2,6,14,.6);border:1px solid var(--line);color:var(--muted);font:.76rem var(--mono);
+  padding:6px 13px;border-radius:999px;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--text);border-color:var(--line-hi)}
+.chip[aria-pressed=true]{background:var(--cyan);color:var(--bg);border-color:var(--cyan)}
+.chip.s-crit[aria-pressed=true]{background:var(--crit);border-color:var(--crit)}
+.chip.s-high[aria-pressed=true]{background:var(--high);border-color:var(--high)}
+.count{font:.78rem var(--mono);color:var(--muted);margin:10px 2px 0}
+.badge{font:700 .7rem var(--mono);letter-spacing:.08em;padding:4px 11px;border-radius:5px;display:inline-flex;gap:6px;align-items:center;margin-bottom:12px}
+.badge.critical{background:var(--crit-bg);color:#fca5a5;border:1px solid #991b1b}
+.badge.high{background:var(--high-bg);color:#fdba74;border:1px solid #c2410c}
+.wu h3{font-size:1.02rem;line-height:1.5;margin-bottom:10px}
+.wu .risk{color:var(--muted);margin:0 0 4px;font-size:.93rem}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .85rem var(--sans);padding:9px 18px;border-radius:7px;cursor:pointer;
+  text-decoration:none;border:1px solid var(--cyan);transition:.25s;background:var(--cyan);color:var(--bg)}
+.btn:hover{background:var(--cyan-d);transform:translateY(-2px);box-shadow:0 6px 20px rgba(56,189,248,.3)}
+.btn.ghost{background:transparent;color:var(--cyan)}
+.btn.ghost:hover{background:var(--cyan);color:var(--bg)}
+.empty{text-align:center;padding:40px 10px}
+.hide{display:none!important}
+
+/* modal drawer */
+.scrim{position:fixed;inset:0;background:rgba(2,5,12,.7);backdrop-filter:blur(4px);z-index:90;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(560px,100%);z-index:100;background:rgba(8,14,28,.92);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-left:1px solid var(--line-hi);padding:28px;overflow-y:auto;
+  transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.drawer.open{transform:none}
+.drawer h3{font-size:1.1rem;line-height:1.5;margin:6px 0 16px}
+.drawer h4{font:600 .8rem var(--mono);color:var(--cyan);margin:20px 0 4px}
+.drawer p{margin:0;font-size:.94rem}
+.x{position:absolute;top:16px;right:16px;background:none;border:1px solid var(--line);color:var(--text);width:36px;height:36px;border-radius:8px;cursor:pointer}
+.x:hover{border-color:var(--cyan);color:var(--cyan)}
+.code{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(2,6,14,.8);border:1px solid var(--line);
+  border-radius:8px;padding:10px 12px;margin-top:8px;font:.78rem var(--mono);color:#a5f3fc}
+.code code{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp{flex:none;background:transparent;border:1px solid var(--line-hi);color:var(--cyan);border-radius:6px;padding:4px 10px;font:.72rem var(--mono);cursor:pointer;transition:.2s}
+.cp:hover{background:var(--cyan);color:var(--bg)}
+.cp.ok{background:#4ade80;border-color:#4ade80;color:#052e16}
+
+/* contact */
+.contact{display:grid;gap:12px}
+.row{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:rgba(2,6,14,.45);transition:.25s}
+.row:hover{border-color:var(--cyan);transform:translateX(4px)}
+.row>i{color:var(--cyan);width:24px;text-align:center;font-size:1.1rem}
+.row a,.row span.v{flex:1;text-decoration:none;word-break:break-word}
+.row a:hover{color:var(--cyan)}
+footer{position:relative;z-index:1;text-align:center;padding:28px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,30px);opacity:0;background:var(--cyan);color:var(--bg);
+  font:600 .82rem var(--mono);padding:9px 18px;border-radius:8px;z-index:120;transition:.25s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:700px){
+  .skills{grid-template-columns:1fr}.card{padding:20px}.tools{top:100px}
+  nav a{padding:6px 11px;font-size:.74rem}.search kbd{display:none}.search input{padding-right:14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
 </head>
-
 <body>
+<a class="skip sr" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
+<div class="grid-bg"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
+<div class="wrap">
 <header>
-
-    <img
-        src="assets/WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg"
-        alt="Mustafa Mohamed Ibrahim"
-        class="profile"
-    >
-
-    <h1>Mustafa Mohamed Ibrahim</h1>
-
-    <div class="title">
-        <i class="fa-solid fa-shield-halved"></i>
-        Cybersecurity & Infrastructure Engineer
-    </div>
-
-    <div class="subtitle">
-        Web Application Security | Active Directory | Infrastructure Security | Penetration Testing
-    </div>
-
-    <div class="nav">
-
-        <button class="active" onclick="openTab(event, 'home')">
-            Home
-        </button>
-
-        <button onclick="openTab(event, 'training')">
-            Training
-        </button>
-
-        <button onclick="openTab(event, 'reports')">
-            Write-ups
-        </button>
-
-        <button onclick="openTab(event, 'cv')">
-            CV
-        </button>
-
-        <button onclick="openTab(event, 'contact')">
-            Contact
-        </button>
-
-    </div>
-
+  <img src="assets/WhatsApp Image 2025-11-18 at 3.02.08 PM.jpeg" alt="Portrait of Mustafa Mohamed Ibrahim" class="profile">
+  <h1>Mustafa Mohamed Ibrahim</h1>
+  <div class="role"><i class="fa-solid fa-shield-halved"></i> Cybersecurity &amp; Infrastructure Engineer</div>
+  <div class="sub">Web Application Security | Active Directory | Infrastructure Security | Penetration Testing</div>
+  <div class="term" aria-label="Terminal intro"><span class="p">root@mustafa</span>:<span class="c">~</span>$ <span id="typed"></span><span class="cur"></span></div>
 </header>
 
+<nav aria-label="Primary">
+  <a href="#home" data-tab="home"><i class="fa-solid fa-house"></i>Home</a>
+  <a href="#training" data-tab="training"><i class="fa-solid fa-graduation-cap"></i>Training</a>
+  <a href="#reports" data-tab="reports"><i class="fa-solid fa-bug"></i>Write-ups</a>
+  <a href="#cv" data-tab="cv"><i class="fa-solid fa-file-lines"></i>CV</a>
+  <a href="#contact" data-tab="contact"><i class="fa-solid fa-envelope"></i>Contact</a>
+</nav>
 
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<div id="home" class="tab active">
-
-    <div class="card">
-
-        <h2>Professional Summary</h2>
-
-        <p>
-            Cybersecurity & Infrastructure Engineer with hands-on experience
-            in enterprise infrastructure administration, web application security,
-            and Active Directory security.
-        </p>
-
-        <p>
-            Combines practical infrastructure experience across
-            <span class="highlight">Windows Server, VMware, Cisco networking,
-            and FortiGate</span> with authorized penetration testing and
-            vulnerability assessment.
-        </p>
-
-        <p>
-            Focused on identifying application and infrastructure security
-            weaknesses, validating security impact, and supporting effective
-            remediation.
-        </p>
-
+<main id="main">
+<!-- HOME -->
+<section id="home" class="tab">
+  <div class="card">
+    <h2>Professional Summary</h2>
+    <p>Cybersecurity &amp; Infrastructure Engineer with hands-on experience in enterprise infrastructure administration, web application security, and Active Directory security.</p>
+    <p>Combines practical infrastructure experience across <span class="hl">Windows Server, VMware, Cisco networking, and FortiGate</span> with authorized penetration testing and vulnerability assessment.</p>
+    <p style="margin-bottom:0">Focused on identifying application and infrastructure security weaknesses, validating security impact, and supporting effective remediation.</p>
+  </div>
+  <div class="card">
+    <h2>Technical Focus</h2>
+    <div class="skills">
+      <div class="skill"><h3><i class="fa-solid fa-globe"></i> Web Application Security</h3><p class="muted">OWASP methodologies, authentication, access control, injection vulnerabilities, business logic and vulnerability validation.</p></div>
+      <div class="skill"><h3><i class="fa-solid fa-network-wired"></i> Active Directory Security</h3><p class="muted">Enumeration, Kerberoasting, privilege escalation, delegation misconfigurations and lateral movement assessment.</p></div>
+      <div class="skill"><h3><i class="fa-solid fa-server"></i> Infrastructure Security</h3><p class="muted">Windows Server, VMware ESXi/vCenter, Cisco enterprise networking, FortiGate and infrastructure security assessments.</p></div>
+      <div class="skill"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Security Research</h3><p class="muted">Vulnerability discovery, impact validation, security reporting, technical research and sanitized write-ups.</p></div>
     </div>
+  </div>
+  <div class="card">
+    <h2>Offensive Methodology</h2>
+    <div class="flow" id="flow"></div>
+  </div>
+  <div class="card">
+    <h2>Security Research</h2>
+    <p>Selected technical research is documented through sanitized Medium write-ups. Sensitive target details and identifiers are redacted where required by confidentiality obligations.</p>
+    <div class="tags" id="homeTags"></div>
+    <div class="acts"><a class="btn" href="#reports"><i class="fa-solid fa-bug"></i>Browse write-ups</a></div>
+  </div>
+</section>
 
+<!-- TRAINING -->
+<section id="training" class="tab">
+  <div class="card">
+    <h2>Security Training &amp; Self-Study</h2>
+    <p class="muted">The following programs represent structured self-study, practical training, and hands-on application. They are not represented as awarded certifications.</p>
+    <ul class="list">
+      <li><strong>OSCP</strong> — Offensive Security Certified Professional curriculum; self-study and practical penetration testing training.</li>
+      <li><strong>CRTP</strong> — Active Directory security, enumeration, privilege escalation and red team methodology training.</li>
+      <li><strong>eWPTX</strong> — Advanced web application security and penetration testing training.</li>
+      <li><strong>eWPT</strong> — Web application penetration testing and OWASP methodology training.</li>
+      <li><strong>eJPT</strong> — Practical penetration testing and security assessment fundamentals.</li>
+      <li><strong>CEH</strong> — Ethical hacking and security assessment methodology training.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>IT Training</h2>
+    <ul class="list"><li><strong>Information Technology Institute (ITI)</strong> — System Administration Training</li></ul>
+  </div>
+  <div class="card">
+    <h2>Practical Focus</h2>
+    <p style="margin:0">Training has been reinforced through hands-on labs, security research, penetration testing exercises, infrastructure work, and technical write-ups.</p>
+  </div>
+</section>
 
-    <div class="card">
-
-        <h2>Technical Focus</h2>
-
-        <div class="skill-grid">
-
-            <div class="skill-box">
-
-                <h3>
-                    <i class="fa-solid fa-globe"></i>
-                    Web Application Security
-                </h3>
-
-                <p class="muted">
-                    OWASP methodologies, authentication, access control,
-                    injection vulnerabilities, business logic and vulnerability
-                    validation.
-                </p>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    <i class="fa-solid fa-network-wired"></i>
-                    Active Directory Security
-                </h3>
-
-                <p class="muted">
-                    Enumeration, Kerberoasting, privilege escalation,
-                    delegation misconfigurations and lateral movement assessment.
-                </p>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    <i class="fa-solid fa-server"></i>
-                    Infrastructure Security
-                </h3>
-
-                <p class="muted">
-                    Windows Server, VMware ESXi/vCenter, Cisco enterprise
-                    networking, FortiGate and infrastructure security assessments.
-                </p>
-
-            </div>
-
-
-            <div class="skill-box">
-
-                <h3>
-                    <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    Security Research
-                </h3>
-
-                <p class="muted">
-                    Vulnerability discovery, impact validation, security
-                    reporting, technical research and sanitized write-ups.
-                </p>
-
-            </div>
-
-        </div>
-
+<!-- WRITE-UPS -->
+<section id="reports" class="tab">
+  <h2 style="text-align:center;margin-bottom:8px">Security Research &amp; Sanitized Write-ups</h2>
+  <p class="muted" style="text-align:center;margin:0 0 24px">Selected authorized security research and technical breakdowns. Sensitive target details are redacted where required by confidentiality agreements.</p>
+  <div class="tools card" style="padding:14px">
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="q" type="search" placeholder="grep write-ups: sqli, idor, csrf, api..." aria-label="Search write-ups" autocomplete="off">
+      <kbd>/</kbd>
     </div>
+    <div class="chips" id="chips" role="group" aria-label="Filters"></div>
+    <div class="count" id="count" aria-live="polite"></div>
+  </div>
+  <div id="list"></div>
+  <div class="card empty hide" id="empty"><p class="muted" style="margin:0">No write-ups match these filters.</p><div class="acts" style="justify-content:center"><button class="btn ghost" id="reset">Clear filters</button></div></div>
+</section>
 
+<!-- CV -->
+<section id="cv" class="tab">
+  <div class="card" style="text-align:center;padding:48px 20px">
+    <h2 style="border:0">Curriculum Vitae</h2>
+    <p class="muted">Download my professional CV covering enterprise infrastructure, cybersecurity experience, technical skills, security research, and professional development.</p>
+    <a class="btn" href="cv/Mustafa Mohamed Ibrahim Mohamed.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf"></i>View / Download CV</a>
+  </div>
+</section>
 
-    <div class="card">
+<!-- CONTACT -->
+<section id="contact" class="tab">
+  <div class="card">
+    <h2>Get In Touch</h2>
+    <div class="contact" id="contactList"></div>
+  </div>
+</section>
+</main>
 
-        <h2>Offensive Methodology</h2>
-
-        <p
-            class="code-text"
-            style="
-                color: var(--text-muted);
-                font-size: 0.95rem;
-                line-height: 2;
-            "
-        >
-            Reconnaissance
-            &rarr;
-            Surface Mapping
-            &rarr;
-            Vulnerability Discovery
-            &rarr;
-            Validation
-            &rarr;
-            Impact Assessment
-            &rarr;
-            Reporting
-            &rarr;
-            Remediation Support
-        </p>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>Security Research</h2>
-
-        <p>
-            Selected technical research is documented through sanitized
-            Medium write-ups. Sensitive target details and identifiers are
-            redacted where required by confidentiality obligations.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">SQL Injection</span>
-            <span class="tag">Authentication Bypass</span>
-            <span class="tag">IDOR</span>
-            <span class="tag">Stored XSS</span>
-            <span class="tag">CSRF</span>
-            <span class="tag">Business Logic</span>
-            <span class="tag">Hardcoded Secrets</span>
-            <span class="tag">API Security</span>
-
-        </div>
-
-    </div>
-
+<footer>© 2026 Mustafa Mohamed Ibrahim — Cybersecurity &amp; Infrastructure Engineer — Authorized &amp; Sanitized Security Research</footer>
 </div>
 
-
-<!-- =====================================================
-     TRAINING
-===================================================== -->
-
-<div id="training" class="tab">
-
-    <div class="card">
-
-        <h2>Security Training & Self-Study</h2>
-
-        <p class="muted">
-            The following programs represent structured self-study,
-            practical training, and hands-on application. They are not
-            represented as awarded certifications.
-        </p>
-
-        <ul>
-
-            <li>
-                <strong>OSCP</strong> —
-                Offensive Security Certified Professional curriculum;
-                self-study and practical penetration testing training.
-            </li>
-
-            <li>
-                <strong>CRTP</strong> —
-                Active Directory security, enumeration, privilege escalation
-                and red team methodology training.
-            </li>
-
-            <li>
-                <strong>eWPTX</strong> —
-                Advanced web application security and penetration testing training.
-            </li>
-
-            <li>
-                <strong>eWPT</strong> —
-                Web application penetration testing and OWASP methodology training.
-            </li>
-
-            <li>
-                <strong>eJPT</strong> —
-                Practical penetration testing and security assessment fundamentals.
-            </li>
-
-            <li>
-                <strong>CEH</strong> —
-                Ethical hacking and security assessment methodology training.
-            </li>
-
-        </ul>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>IT Training</h2>
-
-        <ul>
-
-            <li>
-                <strong>Information Technology Institute (ITI)</strong>
-                — System Administration Training
-            </li>
-
-        </ul>
-
-    </div>
-
-
-    <div class="card">
-
-        <h2>Practical Focus</h2>
-
-        <p>
-            Training has been reinforced through hands-on labs, security
-            research, penetration testing exercises, infrastructure work,
-            and technical write-ups.
-        </p>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     WRITE-UPS
-===================================================== -->
-
-<div id="reports" class="tab">
-
-    <h2 style="text-align:center; margin-bottom:10px;">
-        Security Research & Sanitized Write-ups
-    </h2>
-
-    <p
-        style="
-            text-align:center;
-            color:var(--text-muted);
-            margin-bottom:35px;
-        "
-    >
-        Selected authorized security research and technical breakdowns.
-        Sensitive target details are redacted where required by confidentiality agreements.
-    </p>
-
-
-    <!-- =================================================
-         SOURCE CODE BACKDOOR
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge critical">
-            <i class="fa-solid fa-bug"></i>
-            CRITICAL
-        </span>
-
-        <h3>
-            From Source Code Disclosure to Hardcoded Authentication Backdoor
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Unauthorized authentication and potential account compromise
-            resulting from exposed application source code and insecure
-            authentication logic.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Discovered exposed application source code and identified a
-            hardcoded authentication condition within the authentication
-            workflow.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated authentication bypass against affected application
-            accounts without relying on legitimate credentials.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">Source Code Disclosure</span>
-            <span class="tag">Authentication</span>
-            <span class="tag">Hardcoded Secret</span>
-            <span class="tag">Access Control</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/from-source-code-disclosure-to-a-hardcoded-backdoor-how-i-achieved-full-authentication-bypass-20fb3c38b48e"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
- <!-- =================================================
-         SQL AUTH BYPASS
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge critical">
-            <i class="fa-solid fa-bug"></i>
-            CRITICAL
-        </span>
-
-        <h3>
-            SQL Injection Authentication Bypass on Login Portal
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Authentication bypass resulting in unauthorized access to a
-            privileged application session.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified SQL Injection in the authentication workflow that
-            allowed manipulation of backend query logic and bypass of
-            password validation.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Successful authentication without valid credentials,
-            resulting in unauthorized access to the application.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">SQL Injection</span>
-            <span class="tag">Authentication Bypass</span>
-            <span class="tag">CWE-89</span>
-            <span class="tag">Web Security</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/bypassing-authentication-gates-sql-injection-auth-bypass-on-login-portal-8856ed2efde4"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-    
-    <!-- =================================================
-         MAILWIZZ
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge critical">
-            <i class="fa-solid fa-bug"></i>
-            CRITICAL
-        </span>
-
-        <h3>
-            Infrastructure Takeover: Leaked MailWizz API Keys
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Unauthorized access to transactional email infrastructure
-            with potential for email abuse, reputational damage,
-            and operational impact.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified exposed application API credentials associated
-            with transactional email infrastructure and validated their
-            security impact.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated unauthorized use of exposed credentials against
-            the affected email infrastructure.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">API Security</span>
-            <span class="tag">Hardcoded Credentials</span>
-            <span class="tag">Infrastructure</span>
-            <span class="tag">Secrets Exposure</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/infrastructure-takeover-how-leaked-mailwizz-api-keys-allowed-bypass-of-corporate-email-boundaries-7fe43ca6bcd2"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-
-    <!-- =================================================
-         SQLI NETWORK DEFENSE
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge critical">
-            <i class="fa-solid fa-bug"></i>
-            CRITICAL
-        </span>
-
-        <h3>
-            SQL Injection Bypass: Failure of Network-Level Defenses
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Database structure disclosure and potential exposure of
-            sensitive application and infrastructure information.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified an SQL Injection vulnerability in a dynamic
-            application parameter and demonstrated that perimeter
-            security changes could not replace secure application-layer
-            query handling.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated database structure enumeration and exposure
-            of sensitive application data.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">SQL Injection</span>
-            <span class="tag">Database Security</span>
-            <span class="tag">Application Security</span>
-            <span class="tag">Defense in Depth</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/sql-injection-bypass-why-network-level-fixes-fail-to-secure-vulnerable-applications-d3e96ddc5b27"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-
-    <!-- =================================================
-         STORED XSS
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge high">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            HIGH
-        </span>
-
-        <h3>
-            Stored XSS in Internal Procurement Workflow
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Potential abuse of privileged browser sessions and exposure
-            of information accessible within affected application contexts.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified a persistent cross-site scripting vulnerability
-            within an internal procurement workflow where attacker-controlled
-            content was rendered in privileged user contexts.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated script execution in the affected application
-            context and the ability to interact with information available
-            to the affected browser session.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">Stored XSS</span>
-            <span class="tag">OWASP</span>
-            <span class="tag">DOM</span>
-            <span class="tag">Web Security</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/persistent-code-execution-breaking-down-a-stored-xss-via-internal-procurement-notes-bf282ca159fe"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-
-    <!-- =================================================
-         IDOR
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge high">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            HIGH
-        </span>
-
-        <h3>
-            Unauthenticated IDOR — Guest Personal Data Exposure
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Unauthorized disclosure of sensitive guest information
-            and potential privacy and compliance impact.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified missing server-side authorization controls that
-            allowed unauthorized access to guest records through
-            manipulated object references.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated unauthorized access to sensitive guest
-            information including personally identifiable data.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">IDOR</span>
-            <span class="tag">BOLA</span>
-            <span class="tag">Access Control</span>
-            <span class="tag">PII Exposure</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/unauthenticated-idor-how-missing-access-control-exposed-sensitive-guest-pii-via-room-parameters-8c7d3962d161"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-
-    <!-- =================================================
-         CSRF
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge high">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            HIGH
-        </span>
-
-        <h3>
-            Administrative Account Takeover via CSRF
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Unauthorized modification of privileged account credentials
-            through a cross-origin request.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified an administrative password-change endpoint that
-            lacked effective CSRF protection and relied on authenticated
-            browser state.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            Demonstrated that an attacker-controlled origin could trigger
-            an unauthorized password modification when the affected
-            authenticated administrator interacted with attacker-controlled
-            content.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">CSRF</span>
-            <span class="tag">Account Takeover</span>
-            <span class="tag">Authentication</span>
-            <span class="tag">Web Security</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/account-takeover-via-cross-site-request-forgery-csrf-on-admin-password-change-endpoint-8cca657517f2"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-
-    <!-- =================================================
-         PRICE MANIPULATION
-    ================================================== -->
-
-    <div class="card">
-
-        <span class="badge high">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            HIGH
-        </span>
-
-        <h3>
-            Price Manipulation in E-Commerce Checkout
-        </h3>
-
-        <p>
-            <strong>Business Risk:</strong>
-            Unauthorized reduction of order value and potential financial
-            loss caused by manipulation of client-controlled monetary values.
-        </p>
-
-        <p>
-            <strong>Technical Insight:</strong>
-            Identified insufficient server-side validation of a
-            client-controlled product price during checkout. The application
-            continued using the manipulated value instead of enforcing the
-            authoritative server-side product price.
-        </p>
-
-        <p>
-            <strong>Impact:</strong>
-            A product listed at
-            <strong>EGP 1,185</strong>
-            was processed using a manipulated value of
-            <strong>EGP 185</strong>.
-            With EGP 80 shipping, the resulting checkout total and generated
-            invoice showed <strong>EGP 265</strong>.
-        </p>
-
-        <p class="muted">
-            <strong>Evidence note:</strong>
-            The demonstrated invoice was unpaid. No successful fraudulent
-            financial transaction was completed during testing.
-        </p>
-
-        <div class="tags">
-
-            <span class="tag">Business Logic</span>
-            <span class="tag">Price Manipulation</span>
-            <span class="tag">E-Commerce</span>
-            <span class="tag">Payment Logic</span>
-
-        </div>
-
-        <a
-            href="https://medium.com/@m.bafy10/from-egp-1-185-to-egp-265-exploiting-a-price-manipulation-flaw-in-an-e-commerce-checkout-9bc875fca88b"
-            class="download"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <i class="fa-brands fa-medium"></i>
-            Read Full Write-up
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     CV
-===================================================== -->
-
-<div id="cv" class="tab">
-
-    <div
-        class="card"
-        style="
-            text-align:center;
-            padding:50px 20px;
-        "
-    >
-
-        <h2>
-            Curriculum Vitae
-        </h2>
-
-        <p
-            style="
-                margin-bottom:25px;
-                color:var(--text-muted);
-            "
-        >
-            Download my professional CV covering enterprise infrastructure,
-            cybersecurity experience, technical skills, security research,
-            and professional development.
-        </p>
-
-        <a
-            href="cv/Mustafa Mohamed Ibrahim Mohamed.pdf"
-            class="download"
-            target="_blank"
-        >
-            <i class="fa-solid fa-file-pdf"></i>
-            View / Download CV
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<div id="contact" class="tab">
-
-    <div class="card">
-
-        <h2>Get In Touch</h2>
-
-        <div class="contact-list">
-
-            <div>
-
-                <i class="fa-solid fa-envelope"></i>
-
-                <a href="mailto:m.bafy10@gmail.com">
-                    m.bafy10@gmail.com
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-solid fa-phone"></i>
-
-                <a href="tel:+201002919962">
-                    +20 100 291 9962
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-brands fa-linkedin"></i>
-
-                <a
-                    href="https://linkedin.com/in/mustafa-mohamed-0a77a1197"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn Profile
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-brands fa-github"></i>
-
-                <a
-                    href="https://github.com/MustafaSEC404"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    GitHub
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-brands fa-medium"></i>
-
-                <a
-                    href="https://medium.com/@m.bafy10"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Medium Security Research
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-solid fa-globe"></i>
-
-                <a
-                    href="https://mustafasec404.github.io/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Portfolio
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                <span>
-                    Giza, Egypt
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    © 2026 Mustafa Mohamed Ibrahim
-    —
-    Cybersecurity & Infrastructure Engineer
-    —
-    Authorized & Sanitized Security Research
-
-</footer>
-
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <button class="x" id="close" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+  <div id="dBody"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============ DATA ============ */
+const WRITEUPS=[
+{id:"source-code-backdoor",sev:"critical",cats:["Web Security","Authentication","Access Control"],
+ title:"From Source Code Disclosure to Hardcoded Authentication Backdoor",
+ risk:"Unauthorized authentication and potential account compromise resulting from exposed application source code and insecure authentication logic.",
+ insight:"Discovered exposed application source code and identified a hardcoded authentication condition within the authentication workflow.",
+ impact:"Demonstrated authentication bypass against affected application accounts without relying on legitimate credentials.",
+ tags:["Source Code Disclosure","Authentication","Hardcoded Secret","Access Control"],
+ url:"https://medium.com/@m.bafy10/from-source-code-disclosure-to-a-hardcoded-backdoor-how-i-achieved-full-authentication-bypass-20fb3c38b48e"},
+{id:"sqli-auth-bypass",sev:"critical",cats:["Web Security","Authentication","Injection"],
+ title:"SQL Injection Authentication Bypass on Login Portal",
+ risk:"Authentication bypass resulting in unauthorized access to a privileged application session.",
+ insight:"Identified SQL Injection in the authentication workflow that allowed manipulation of backend query logic and bypass of password validation.",
+ impact:"Successful authentication without valid credentials, resulting in unauthorized access to the application.",
+ tags:["SQL Injection","Authentication Bypass","CWE-89","Web Security"],
+ url:"https://medium.com/@m.bafy10/bypassing-authentication-gates-sql-injection-auth-bypass-on-login-portal-8856ed2efde4"},
+{id:"mailwizz-api-keys",sev:"critical",cats:["API","Infrastructure","Secrets"],
+ title:"Infrastructure Takeover: Leaked MailWizz API Keys",
+ risk:"Unauthorized access to transactional email infrastructure with potential for email abuse, reputational damage, and operational impact.",
+ insight:"Identified exposed application API credentials associated with transactional email infrastructure and validated their security impact.",
+ impact:"Demonstrated unauthorized use of exposed credentials against the affected email infrastructure.",
+ tags:["API Security","Hardcoded Credentials","Infrastructure","Secrets Exposure"],
+ url:"https://medium.com/@m.bafy10/infrastructure-takeover-how-leaked-mailwizz-api-keys-allowed-bypass-of-corporate-email-boundaries-7fe43ca6bcd2"},
+{id:"sqli-network-defense",sev:"critical",cats:["Web Security","Injection","Infrastructure"],
+ title:"SQL Injection Bypass: Failure of Network-Level Defenses",
+ risk:"Database structure disclosure and potential exposure of sensitive application and infrastructure information.",
+ insight:"Identified an SQL Injection vulnerability in a dynamic application parameter and demonstrated that perimeter security changes could not replace secure application-layer query handling.",
+ impact:"Demonstrated database structure enumeration and exposure of sensitive application data.",
+ tags:["SQL Injection","Database Security","Application Security","Defense in Depth"],
+ url:"https://medium.com/@m.bafy10/sql-injection-bypass-why-network-level-fixes-fail-to-secure-vulnerable-applications-d3e96ddc5b27"},
+{id:"stored-xss",sev:"high",cats:["Web Security","Injection"],
+ title:"Stored XSS in Internal Procurement Workflow",
+ risk:"Potential abuse of privileged browser sessions and exposure of information accessible within affected application contexts.",
+ insight:"Identified a persistent cross-site scripting vulnerability within an internal procurement workflow where attacker-controlled content was rendered in privileged user contexts.",
+ impact:"Demonstrated script execution in the affected application context and the ability to interact with information available to the affected browser session.",
+ tags:["Stored XSS","OWASP","DOM","Web Security"],
+ url:"https://medium.com/@m.bafy10/persistent-code-execution-breaking-down-a-stored-xss-via-internal-procurement-notes-bf282ca159fe"},
+{id:"unauth-idor",sev:"high",cats:["Web Security","Access Control","API"],
+ title:"Unauthenticated IDOR — Guest Personal Data Exposure",
+ risk:"Unauthorized disclosure of sensitive guest information and potential privacy and compliance impact.",
+ insight:"Identified missing server-side authorization controls that allowed unauthorized access to guest records through manipulated object references.",
+ impact:"Demonstrated unauthorized access to sensitive guest information including personally identifiable data.",
+ tags:["IDOR","BOLA","Access Control","PII Exposure"],
+ url:"https://medium.com/@m.bafy10/unauthenticated-idor-how-missing-access-control-exposed-sensitive-guest-pii-via-room-parameters-8c7d3962d161"},
+{id:"admin-csrf",sev:"high",cats:["Web Security","Authentication","Access Control"],
+ title:"Administrative Account Takeover via CSRF",
+ risk:"Unauthorized modification of privileged account credentials through a cross-origin request.",
+ insight:"Identified an administrative password-change endpoint that lacked effective CSRF protection and relied on authenticated browser state.",
+ impact:"Demonstrated that an attacker-controlled origin could trigger an unauthorized password modification when the affected authenticated administrator interacted with attacker-controlled content.",
+ tags:["CSRF","Account Takeover","Authentication","Web Security"],
+ url:"https://medium.com/@m.bafy10/account-takeover-via-cross-site-request-forgery-csrf-on-admin-password-change-endpoint-8cca657517f2"},
+{id:"price-manipulation",sev:"high",cats:["Web Security","Business Logic"],
+ title:"Price Manipulation in E-Commerce Checkout",
+ risk:"Unauthorized reduction of order value and potential financial loss caused by manipulation of client-controlled monetary values.",
+ insight:"Identified insufficient server-side validation of a client-controlled product price during checkout. The application continued using the manipulated value instead of enforcing the authoritative server-side product price.",
+ impact:"A product listed at EGP 1,185 was processed using a manipulated value of EGP 185. With EGP 80 shipping, the resulting checkout total and generated invoice showed EGP 265.",
+ note:"The demonstrated invoice was unpaid. No successful fraudulent financial transaction was completed during testing.",
+ tags:["Business Logic","Price Manipulation","E-Commerce","Payment Logic"],
+ url:"https://medium.com/@m.bafy10/from-egp-1-185-to-egp-265-exploiting-a-price-manipulation-flaw-in-an-e-commerce-checkout-9bc875fca88b"}
+];
+const CONTACTS=[
+ ["fa-solid fa-envelope","m.bafy10@gmail.com","mailto:m.bafy10@gmail.com",true],
+ ["fa-solid fa-phone","+20 100 291 9962","tel:+201002919962",true],
+ ["fa-brands fa-linkedin","LinkedIn Profile","https://linkedin.com/in/mustafa-mohamed-0a77a1197"],
+ ["fa-brands fa-github","GitHub","https://github.com/MustafaSEC404"],
+ ["fa-brands fa-medium","Medium Security Research","https://medium.com/@m.bafy10"],
+ ["fa-solid fa-globe","Portfolio","https://mustafasec404.github.io/"],
+ ["fa-solid fa-location-dot","Giza, Egypt",null]
+];
+const FLOW=["Reconnaissance","Surface Mapping","Vulnerability Discovery","Validation","Impact Assessment","Reporting","Remediation Support"];
+
+/* ============ HELPERS ============ */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const SEV={critical:["CRITICAL","fa-bug"],high:["HIGH","fa-triangle-exclamation"]};
+const tagsHTML=t=>t.map(x=>`<span class="tag">${esc(x)}</span>`).join("");
+let toastT;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),1800)}
+async function copy(text,btn){
+  try{await navigator.clipboard.writeText(text)}
+  catch{const a=document.createElement("textarea");a.value=text;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove()}
+  toast("Copied to clipboard");
+  if(btn){const o=btn.textContent;btn.textContent="copied";btn.classList.add("ok");setTimeout(()=>{btn.textContent=o;btn.classList.remove("ok")},1400)}
+}
+
+/* ============ ROUTER (hash + history) ============ */
+const TABS=$$(".tab").map(t=>t.id);
+function route(){
+  let id=location.hash.slice(1).split("/")[0];
+  if(!TABS.includes(id))id="home";
+  $$(".tab").forEach(t=>t.classList.toggle("active",t.id===id));
+  $$("nav a").forEach(a=>a.toggleAttribute("aria-current",a.dataset.tab===id)||a.removeAttribute("aria-current"));
+  $$("nav a").forEach(a=>{a.dataset.tab===id?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+  document.title=(id==="home"?"":id[0].toUpperCase()+id.slice(1)+" | ")+"Mustafa Mohamed Ibrahim | Cybersecurity & Infrastructure Engineer";
+  const wid=location.hash.split("/")[1];
+  wid&&id==="reports"?openDrawer(wid,true):closeDrawer(true);
+  if(!wid)window.scrollTo({top:0,behavior:"smooth"});
+}
+addEventListener("hashchange",route);
+
+/* ============ STATIC RENDER ============ */
+$("#flow").innerHTML=FLOW.map((f,i)=>`<span>${f}</span>${i<FLOW.length-1?"<i>&rarr;</i>":""}`).join("");
+$("#homeTags").innerHTML=tagsHTML(["SQL Injection","Authentication Bypass","IDOR","Stored XSS","CSRF","Business Logic","Hardcoded Secrets","API Security"]);
+$("#contactList").innerHTML=CONTACTS.map(([ic,label,href,cp])=>`
+  <div class="row"><i class="${ic}"></i>
+  ${href?`<a href="${href}" ${href.startsWith("http")?'target="_blank" rel="noopener noreferrer"':""}>${esc(label)}</a>`:`<span class="v">${esc(label)}</span>`}
+  ${cp?`<button class="cp" data-copy="${esc(label)}" aria-label="Copy ${esc(label)}">copy</button>`:""}</div>`).join("");
+
+/* ============ WRITE-UPS: search + filter ============ */
+const state={q:"",sev:null,cat:null};
+const cats=[...new Set(WRITEUPS.flatMap(w=>w.cats))].sort();
+$("#chips").innerHTML=
+ `<button class="chip" data-k="sev" data-v="critical" aria-pressed="false"><span class="s-crit">●</span> CRITICAL</button>`+
+ `<button class="chip" data-k="sev" data-v="high" aria-pressed="false">HIGH</button>`+
+ cats.map(c=>`<button class="chip" data-k="cat" data-v="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("");
+$("#list").innerHTML=WRITEUPS.map(w=>`
+ <article class="card wu" data-id="${w.id}">
+  <span class="badge ${w.sev}"><i class="fa-solid ${SEV[w.sev][1]}"></i>${SEV[w.sev][0]}</span>
+  <h3>${esc(w.title)}</h3>
+  <p class="risk"><strong>Business Risk:</strong> ${esc(w.risk)}</p>
+  <div class="tags">${tagsHTML(w.tags)}</div>
+  <div class="acts">
+   <button class="btn ghost" data-open="${w.id}"><i class="fa-solid fa-eye"></i>Quick view</button>
+   <a class="btn" href="${w.url}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-medium"></i>Read full write-up</a>
+  </div>
+ </article>`).join("");
+
+function applyFilters(){
+  const q=state.q.trim().toLowerCase();
+  let n=0;
+  WRITEUPS.forEach(w=>{
+    const hay=[w.title,w.risk,w.insight,w.impact,...w.tags,...w.cats,w.sev].join(" ").toLowerCase();
+    const ok=(!q||q.split(/\s+/).every(t=>hay.includes(t)))&&(!state.sev||w.sev===state.sev)&&(!state.cat||w.cats.includes(state.cat));
+    $(`[data-id="${w.id}"]`).classList.toggle("hide",!ok);
+    if(ok)n++;
+  });
+  $("#count").textContent=`${n} of ${WRITEUPS.length} write-ups`;
+  $("#empty").classList.toggle("hide",n>0);
+  $$(".chip").forEach(c=>c.setAttribute("aria-pressed",String(state[c.dataset.k]===c.dataset.v)));
+}
+$("#q").addEventListener("input",e=>{state.q=e.target.value;applyFilters()});
+$("#chips").addEventListener("click",e=>{
+  const c=e.target.closest(".chip");if(!c)return;
+  state[c.dataset.k]=state[c.dataset.k]===c.dataset.v?null:c.dataset.v;applyFilters();
+});
+$("#reset").addEventListener("click",()=>{state.q="";state.sev=state.cat=null;$("#q").value="";applyFilters()});
+applyFilters();
+
+/* ============ DRAWER ============ */
+let lastFocus=null;
+function openDrawer(id,fromRoute){
+  const w=WRITEUPS.find(x=>x.id===id);if(!w)return;
+  lastFocus=document.activeElement;
+  $("#dBody").innerHTML=`
+   <span class="badge ${w.sev}"><i class="fa-solid ${SEV[w.sev][1]}"></i>${SEV[w.sev][0]}</span>
+   <h3 id="dTitle">${esc(w.title)}</h3>
+   <h4>Business Risk</h4><p>${esc(w.risk)}</p>
+   <h4>Technical Insight</h4><p>${esc(w.insight)}</p>
+   <h4>Impact</h4><p>${esc(w.impact)}</p>
+   ${w.note?`<h4>Evidence note</h4><p class="muted">${esc(w.note)}</p>`:""}
+   <div class="tags">${tagsHTML(w.tags)}</div>
+   <h4>Reference</h4>
+   <div class="code"><code>${esc(w.url)}</code><button class="cp" data-copy="${esc(w.url)}">copy</button></div>
+   <div class="code"><code>CWE / tags: ${esc(w.tags.join(", "))}</code><button class="cp" data-copy="${esc(w.tags.join(", "))}">copy</button></div>
+   <div class="acts"><a class="btn" href="${w.url}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-medium"></i>Read full write-up</a></div>`;
+  $("#drawer").classList.add("open");$("#scrim").classList.add("open");
+  $("#drawer").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";
+  $("#close").focus();
+  if(!fromRoute)history.pushState(null,"",`#reports/${id}`);
+}
+function closeDrawer(fromRoute){
+  if(!$("#drawer").classList.contains("open"))return;
+  $("#drawer").classList.remove("open");$("#scrim").classList.remove("open");
+  $("#drawer").setAttribute("aria-hidden","true");document.body.style.overflow="";
+  if(!fromRoute&&location.hash.includes("/"))history.pushState(null,"","#reports");
+  lastFocus&&lastFocus.focus&&lastFocus.focus();
+}
+$("#close").addEventListener("click",()=>closeDrawer());
+$("#scrim").addEventListener("click",()=>closeDrawer());
+document.addEventListener("click",e=>{
+  const o=e.target.closest("[data-open]");if(o)openDrawer(o.dataset.open);
+  const c=e.target.closest("[data-copy]");if(c)copy(c.dataset.copy,c);
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")closeDrawer();
+  if(e.key==="/"&&!/input|textarea/i.test(document.activeElement.tagName)){
+    e.preventDefault();location.hash="#reports";setTimeout(()=>$("#q").focus(),50);
+  }
+  if(e.key==="Tab"&&$("#drawer").classList.contains("open")){ // focus trap
+    const f=$$("button,a[href]",$("#drawer"));const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+});
+
+/* ============ SCROLL PROGRESS ============ */
+addEventListener("scroll",()=>{
+  const h=document.documentElement;
+  $("#progress").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+"%";
+},{passive:true});
+
+/* ============ TERMINAL TYPING ============ */
+(function(){
+  const cmds=["whoami","cat role.txt","nmap -sV --scope authorized","ls ./writeups | wc -l"];
+  const out=$("#typed"),reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){out.textContent=cmds[0];return}
+  let c=0,i=0,del=false;
+  (function tick(){
+    const s=cmds[c];
+    out.textContent=s.slice(0,i);
+    if(!del&&i<s.length){i++;setTimeout(tick,70)}
+    else if(!del){del=true;setTimeout(tick,1500)}
+    else if(i>0){i--;setTimeout(tick,28)}
+    else{del=false;c=(c+1)%cmds.length;setTimeout(tick,300)}
+  })();
+})();
+
+/* ============ MATRIX RAIN (pauses when hidden / reduced-motion) ============ */
+(function(){
+  const cv=$("#fx"),ctx=cv.getContext("2d");
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){cv.style.display="none";return}
+  const glyphs="01アイウエオカキクケコサシスセソ{}<>/$#".split(""),size=16;
+  let cols,drops,raf,last=0;
+  function resize(){
+    const d=Math.min(devicePixelRatio||1,1.5);
+    cv.width=innerWidth*d;cv.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0);
+    cols=Math.ceil(innerWidth/size);drops=Array.from({length:cols},()=>Math.random()*-40);
+    ctx.fillStyle="#050a14";ctx.fillRect(0,0,innerWidth,innerHeight);
+  }
+  function frame(t){
+    raf=requestAnimationFrame(frame);
+    if(t-last<60)return;last=t; // ~16fps keeps CPU low
+    ctx.fillStyle="rgba(5,10,20,.14)";ctx.fillRect(0,0,innerWidth,innerHeight);
+    ctx.font=size+"px 'Fira Code',monospace";ctx.fillStyle="#38bdf8";
+    for(let i=0;i<cols;i++){
+      if(drops[i]>0)ctx.fillText(glyphs[Math.random()*glyphs.length|0],i*size,drops[i]*size);
+      if(drops[i]*size>innerHeight&&Math.random()>.975)drops[i]=0;
+      drops[i]++;
+    }
+  }
+  resize();addEventListener("resize",resize);
+  document.addEventListener("visibilitychange",()=>{
+    if(document.hidden)cancelAnimationFrame(raf);else raf=requestAnimationFrame(frame);
+  });
+  raf=requestAnimationFrame(frame);
+})();
+
+route();
+</script>
 </body>
 </html>
